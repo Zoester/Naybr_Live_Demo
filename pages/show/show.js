@@ -1,6 +1,7 @@
 // pages/show/show.js
 
-const app = getApp();
+const app = getApp()
+const myaudio = wx.createInnerAudioContext();
 
 Page({
 
@@ -16,6 +17,7 @@ Page({
     reviews:[],
     likes:null,
     bookmarks:[],
+    isplay: false
   },
 
   /**
@@ -60,6 +62,22 @@ Page({
   });
 
 
+  },
+
+  addAudio(){
+    const recorderManager = wx.getRecorderManager()
+    this.setData({
+      manager: recorderManager
+    })
+    recorderManager.start({duration: 30000, })
+  },
+
+  stopAudio(){
+    this.data.manager.onStop((res) => {
+      console.log('recorder stop', res)
+      const { tempFilePath } = res
+    })
+    this.data.manager.stop()
   },
 
     //create a new comment
@@ -145,6 +163,20 @@ Page({
 
   },
 
+  //播放
+  play(){
+ 
+    myaudio.play();
+    console.log(myaudio.duration);
+    this.setData({ isplay: true });
+  },
+  // 停止
+  stop(){
+    myaudio.pause();
+    this.setData({ isplay: false });
+  },
+
+
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -161,7 +193,9 @@ Page({
     // instead of onload which onlu load one time
     this.setData({
       currentUser: app.globalData.userInfo,
-    });
+    })
+    myaudio.src = "http://tmp/wx1b963d4223f1da06.o6zAJs-fHUkMdRUKyE37…44ab66c7de5cfc785cf73457d81.durationTime=6252.aac"
+    
 
   },
 

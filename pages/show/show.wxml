@@ -55,6 +55,15 @@
       <view class="submit-button">
         <button size="mini" type="primary" formType="submit">Add Review</button>
       </view>
+      <view class="audio-button">
+        <button size="mini" type="primary" bindtap="addAudio">Record</button>
+        <button size="mini" type="primary" bindtap="stopAudio">StopRecord</button>
+      </view>
+      <view class="play-button">
+        <button size="mini" type="primary" bindtap="play">Play</button>
+        <button size="mini" type="primary" bindtap="stop">Stop</button>
+      </view>
+
     </form>
 
   </view>
