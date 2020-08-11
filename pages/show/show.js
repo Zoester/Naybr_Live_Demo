@@ -23,11 +23,6 @@ Page({
    */
   onLoad: function (options) {
 
-
-    this.setData({
-      currentUser: app.globalData.userInfo,
-    });
-
     const ProductCard = new wx.BaaS.TableObject('productCard');
     const Reviews = new wx.BaaS.TableObject('review');
 
@@ -162,6 +157,11 @@ Page({
    * Lifecycle function--Called when page show
    */
   onShow: function () {
+    // this excutes everytime when page appears 
+    // instead of onload which onlu load one time
+    this.setData({
+      currentUser: app.globalData.userInfo,
+    });
 
   },
 

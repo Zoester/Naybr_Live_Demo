@@ -40,6 +40,8 @@ Page({
 
   userInfoHandler(data) {
     wx.BaaS.auth.loginWithWechat(data).then(user => {
+      // if not set to app.globalData.userIndo, then other Page data currentUser won't have access to the global data
+      app.globalData.userInfo = user
       console.log("user info", user);
       this.setData({
         userInfo: user,
