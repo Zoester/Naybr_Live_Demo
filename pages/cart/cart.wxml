@@ -1,0 +1,28 @@
+<!--pages/cart/cart.wxml-->
+<view class="banner" style="scale-to-fill; padding-top:30px; height: 20vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/pages/images/cart.jpg);">
+  <view class="h1">BOOKMARKS</view>
+  <view class="p">Your saved items</view>
+</view>
+  <view class="container">
+    <view class="grid">
+      <view class="card-product" wx:for="{{bookmarks}}"> 
+        <view class="card-product-inside">
+        <view style="margin: 20px">
+          <view class="h1">Event: {{item.card_id.name}}</view>
+          <view class="h2">Likes: {{item.card_id.likes}}</view>
+        </view>
+        <view>
+          <view>
+            <image class="productCardImage" src="{{item.card_id.photos}}"></image>
+          </view>
+        </view>
+        <view>
+          <van-icon name="checked" color="green" size="40px"/>
+          <van-icon name="clear" color="red" size="40px"/>
+      </view>
+     </view>
+    </view> 
+  </view>  
+</view> 
+
+

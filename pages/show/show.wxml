@@ -1,0 +1,63 @@
+<!--pages/show/show.wxml-->
+
+
+<!--Photo Header-->
+<view class="photo">
+  <image class="image" mode="aspectFill" src="{{productcard.photos}}"></image>
+</view>
+
+<!--Name and Likes-->
+<view class="container">
+  <view class="card">
+
+  <view class="name.like">
+    <view class="h2">{{productcard.name}}</view>
+    <view class="likes">
+    <view data-id="{{productcard.id}}" bindtap="voteUp">❤️</view>
+    <view>{{likes}}</view>
+  </view>
+
+  </view>
+
+<!--Details-->
+
+    <view class="h3">{{productcard.description}}</view>
+    <view class="h3">{{productcard.description_2}}</view>
+    <view class="h4">{{productcard.price}}元</view>
+    <view class="h4">{{productcard.date}}</view>
+    <view class="h4">{{productcard.location}}</view>
+
+</view>
+
+</view>
+<!--Reviews-->
+
+<view class="container_reviews">
+
+    <view class="bookMark">
+    <button wx:if="{{!currentUser}}" bindtap="navigateToProfile"> Login to Bookmark </button>
+    <view wx:else>
+      <button size="mini" type="primary" data-id="{{productcard.id}}" bindtap="addToBookmark">add to bookmark</button>
+    </view>
+  </view>
+  <view class="reviews">
+
+    <view class="review-style">Read what others said:</view>
+      <view wx:for="{{reviews}}" class="review-items" wx:for-item="review" wx:key="id">
+      <view class="content">"{{review.reviews}}"</view>
+    </view>
+  
+    <form bindsubmit="createReview" wx:if="{{currentUser}}">
+        <view class="review-input" style="width: 100%; margin-top: 20rpx;">
+            <input style="padding: 15rpx;" name="content" placeholder="Type Here..." />
+        </view>
+
+      <view class="submit-button">
+        <button size="mini" type="primary" formType="submit">Add Review</button>
+      </view>
+    </form>
+
+  </view>
+</view>
+
+

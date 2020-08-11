@@ -1,0 +1,100 @@
+/**CONTAINER**/
+Page {
+  background-color: #f8f9fa;
+}
+
+.photo {
+  width: 100%;
+  overflow: hidden;
+}
+.image {
+  width: 100%;
+}
+
+.container {
+  padding: 10px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  background-color: white;
+}
+
+.card {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: column;
+  margin: 5px;
+}
+
+.name.like {
+  display: flex;
+  justify-content: space-evenly;
+  flex-direction: row;
+  align-items: stretch;
+}
+
+.name.like .likes {
+  font-size: 14px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+.card .h2 {
+  font-size: 20px;
+  font-weight: bold;  
+}
+
+.card .h3 {
+  font-size: 16px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-weight: lighter;
+}
+
+.card .h4 {
+  font-size: 14px;
+  font-weight: lighter;
+  margin-top: 5px;
+  text-align: center;
+}
+
+.container_reviews {
+  margin-top: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  background-color: white;
+}
+
+
+.reviews .review-input {
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  font-size: 14px;
+  text-align: center;
+  font-style: italic;
+}
+
+.reviews .submit-button {
+  font-size: 10px;
+  font-weight: lighter;
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.reviews .review-style {
+  margin: 10px;
+  padding-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+.reviews .review-items {
+  margin: 10px;
+  font-weight: lighter;
+  font-size: 16px;
+  border-bottom: 1px lightgray solid;
+}
+
+
+
+

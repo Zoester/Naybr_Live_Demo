@@ -1,0 +1,17 @@
+<!--pages/profile/profile.wxml-->
+<view class="container">
+  <view class="welcome">
+    <text class="welcome_text">{{welcome_text}}</text>
+  </view>
+  <view class="userinfo">
+    <button wx:if="{{showLoginBtn}}" open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> Log in </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatar}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickname}}</text>
+      <!-- <text class="userinfo-country">{{userInfo.country}}</text> -->
+    </block>
+  </view>
+  <view class="icon">🎵</view>
+</view>
+
+
