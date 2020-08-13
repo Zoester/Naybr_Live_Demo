@@ -40,33 +40,7 @@
       <button size="mini" type="primary" data-id="{{productcard.id}}" bindtap="addToBookmark">add to bookmark</button>
     </view>
   </view>
-  <view class="reviews">
-
-    <view class="review-style">Read what others said:</view>
-      <view wx:for="{{reviews}}" class="review-items" wx:for-item="review" wx:key="id">
-      <view class="content">"{{review.reviews}}"</view>
-    </view>
-  
-    <form bindsubmit="createReview" wx:if="{{currentUser}}">
-        <view class="review-input" style="width: 100%; margin-top: 20rpx;">
-            <input style="padding: 15rpx;" name="content" placeholder="Type Here..." />
-        </view>
-
-      <view class="submit-button">
-        <button size="mini" type="primary" formType="submit">Add Review</button>
-      </view>
-      <view class="audio-button">
-        <button size="mini" type="primary" bindtap="addAudio">Record</button>
-        <button size="mini" type="primary" bindtap="stopAudio">StopRecord</button>
-      </view>
-      <view class="play-button">
-        <button size="mini" type="primary" bindtap="play">Play</button>
-        <button size="mini" type="primary" bindtap="stop">Stop</button>
-      </view>
-
-    </form>
-
-  </view>
+ 
 </view>
 
 

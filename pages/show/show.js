@@ -17,7 +17,8 @@ Page({
     reviews:[],
     likes:null,
     bookmarks:[],
-    isplay: false
+    isplay: false,
+    path: ""
   },
 
   /**
@@ -60,55 +61,9 @@ Page({
       reviews: res.data.objects,
     })
   });
-
-
   },
 
-  addAudio(){
-    const recorderManager = wx.getRecorderManager()
-    this.setData({
-      manager: recorderManager
-    })
-    recorderManager.start({duration: 30000, })
-  },
 
-  stopAudio(){
-    this.data.manager.onStop((res) => {
-      console.log('recorder stop', res)
-      const { tempFilePath } = res
-    })
-    this.data.manager.stop()
-  },
-
-    //create a new comment
-  createReview:function(event){
-    console.log('create review',event);
-    const content = event.detail.value.content;
-    console.log('clicked content', content);
-
-    let Review = new wx.BaaS.TableObject('review');
-    //create empty record locally
-    let newReview = Review.create();
-    console.log('what is data', this.data)
-    //create data and then pass data inside local record
-    const data = {
-      product_id: this.options.id,
-      reviews: content,
-    }
-    
-    newReview.set(data);
-    //record in BaaS
-    newReview.save().then((res)=>{
-      console.log('save res',res);
-      const newReviews = this.data.reviews;
-      newReviews.push(res.data);
-
-      this.setData({
-        reviews:newReviews,
-
-      })
-    }) 
-  },
 
   //click heart to like
  voteUp(event){
@@ -159,24 +114,7 @@ Page({
 
       })
     })
-
-
   },
-
-  //播放
-  play(){
- 
-    myaudio.play();
-    console.log(myaudio.duration);
-    this.setData({ isplay: true });
-  },
-  // 停止
-  stop(){
-    myaudio.pause();
-    this.setData({ isplay: false });
-  },
-
-
 
   /**
    * Lifecycle function--Called when page is initially rendered
@@ -194,7 +132,7 @@ Page({
     this.setData({
       currentUser: app.globalData.userInfo,
     })
-    myaudio.src = "http://tmp/wx1b963d4223f1da06.o6zAJs-fHUkMdRUKyE37…44ab66c7de5cfc785cf73457d81.durationTime=6252.aac"
+    myaudio.src = this.data.path
     
 
   },
