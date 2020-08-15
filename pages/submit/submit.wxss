@@ -1,1 +1,65 @@
 /* pages/submit/submit.wxss */
+
+/* Structure */
+.container {
+  margin-left: 1em;
+  margin-right: 1em;
+  padding: 50rpx 0;
+  box-sizing: border-box;
+  background-color: white;
+
+}
+
+.page-section {
+  border-radius: 3%;
+  box-shadow: 3px 3px 2px 2px #CED3DC;
+  width: 80vw;
+  padding: 10px;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  /* margin: 0 0 10px; */
+  overflow: hidden;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  margin-bottom: 30px;
+}
+
+/* .productCardImage { */
+
+.page-section-title {
+  font-size: 18px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  color: black;
+  text-align: center;
+  margin: 10px;
+}
+
+.video-upload {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.weui-input {
+  background-color: #F7F7F7;
+  width: 70vw;
+  text-align: center;
+  color: #ABA9C3;
+  font-size: 24rpx;
+}
+
+.picker {
+  background-color: #F7F7F7;
+  text-align: center;
+  color: #ABA9C3;
+  font-size: 24rpx;
+}
+
+.btn-area {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 40px;
+
+}

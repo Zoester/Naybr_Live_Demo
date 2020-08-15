@@ -88,14 +88,17 @@ bindchange="bindDateChange"
 
 <view class="container">
 
+<!-- reset -->
   <view class="page-body">
     <form catchsubmit="formSubmit" catchreset="formReset">
 
-
-    <view class="weui-cell__bd" style="margin: 10rpx 0" >
-      <button wx:if="{{!vidURL}}" style="margin: 30rpx 0" type="primary" name="video" value="{{vidURL}}" bindtap="takeVideo">Take a vid or Upload</button>
+<!-- Upload or Take a Vid  -->
+<view class="page-section">
+    <view class="weui-cell__bd" style="margin: 10rpx 0" class="video-upload">
+      <button wx:if="{{!vidURL}}" style="margin: 30rpx 0" name="video" value="{{vidURL}}" bindtap="takeVideo">Press Here to Take or Upload Your Video</button>
       <video wx:else src='{{vidURL}}'></video>
     </view>
+</view>
 
     <!-- <view class="page-section-title"></view>
       <view class="weui-cells weui-cells_after-title">
@@ -111,13 +114,13 @@ bindchange="bindDateChange"
       <button bindtap="deletePhoto">Delete</button>
     </view> -->
 
-
+<!-- Enter Event Name -->
       <view class="page-section">
-        <view class="page-section-title">Event</view>
+        <view class="page-section-title">What You Doing?</view>
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd" style="margin: 10rpx 0" >
-              <input class="weui-input" name="name" style="background-color: #9F5F9F" placeholder="Enter Event Name"/>
+              <input class="weui-input" name="name" placeholder="Enter Event Name" placeholder-style="color: #ED6A5A; font-weight:bold; font-size:14px"/>
             </view>
           </view>
         </view>
@@ -134,9 +137,12 @@ bindchange="bindDateChange"
         </view>
       </view> -->
 
-      <DateTimePicker title="Start" isRequired="true" bind:dateTimePicker="onDateTimePicker" name='startTime' format='yyyy-MM-dd HH:mm:ss' />
-      <DateTimePicker title="End" isRequired="true" bind:dateTimePicker="onDateTimePicker" name='endTime' format='yyyy-MM-dd HH:mm:ss' />
-
+<!-- Date Time Picker -->
+<view class="page-section">
+  <view class="page-section-title">When You Doing It?</view>
+      <DateTimePicker title="Start" isRequired="true" bind:dateTimePicker="onDateTimePicker" name='startTime' format='yyyy-MM-dd HH:mm' style="margin: 5px 0; color: #ED6A5A; font-size: 14px"/>
+      <DateTimePicker title="End" isRequired="true" bind:dateTimePicker="onDateTimePicker" name='endTime' format='yyyy-MM-dd HH:mm' style="margin: 5px 0; color: #ED6A5A; font-size: 14px"/>
+</view>
 
       <!-- <view class="page-section">
         <view class="page-section-title">Location</view>
@@ -149,40 +155,43 @@ bindchange="bindDateChange"
         </view>
       </view> -->
 
-    
-    <view class="page-section page-section-gap">
+<!-- Genre Picker -->
+<view class="page-section">
+    <view class="page-section-title">What Are The ~Vibes~?</view>
       <view class="section">
-      <view class="section__title">Genre</view>
-      <picker name="genre" bindchange="bindPickerChange" style="background-color: #9F5F9F" value="{{index}}" range="{{genreArray}}">
-        <view class="picker">
-        {{genre == '' ? 'Please select' : genre}}
+      <picker class="weui-input" name="genre" bindchange="bindPickerChange" value="{{index}}" range="{{genreArray}}">
+        <view class="picker" style="margin: 5px 0; color: #ED6A5A; font-size: 14px">
+        {{genre == '' ? 'Select Genre' : genre}}
         </view>
       </picker>
       </view>
-    </view>
+</view>
 
-
+<!-- PRICE -->
     <view class="page-section">
-        <view class="page-section-title">Price</view>
+        <view class="page-section-title">How Much $$$?</view>
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd" style="margin: 10rpx 0" >
-              <input class="weui-input" name="Price" style="background-color: #9F5F9F" placeholder="Price"/>
+              <input class="weui-input" name="Price" placeholder="Price" placeholder-style="color: #ED6A5A; font-weight: bold; font-size: 14px"/>
             </view>
           </view>
         </view>
       </view>
       
-        <view class="page-section-title">Location</view>
+<!-- Location -->
+<view class="page-section">
+        <view class="page-section-title">Where's It At?</view>
         <view class="weui-cell weui-cell_input"  bindtap="getLocation" >
         <view class="weui-cell__bd" style="margin: 10rpx 0" >
-          <input class="weui-input" name="location" style="background-color: #9F5F9F" placeholder="Location" value="{{address_name}}"/>
+          <input class="weui-input" name="location"  placeholder="Location" placeholder-style="color: #ED6A5A; font-weight:bold; font-size:14px" value="{{address_name}}"/>
         </view>
       </view>
-      
+</view>
+<!-- Submit Btn -->
     <view class="btn-area">
-        <button style="margin: 30rpx 0" type="primary" formType="submit">Submit</button>
-        <button style="margin: 30rpx 0" formType="reset">Reset</button>
+        <button style="margin: 30rpx 0" formType="submit" size="mini">Submit 😄</button>
+        <button style="margin: 30rpx 0" formType="reset" size="mini">Reset 😢</button>
       </view>
 
 
