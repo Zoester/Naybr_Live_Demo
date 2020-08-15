@@ -191,7 +191,7 @@ Page({
 
   //播放
   play(){
-    setTimeout(function(){myaudio.duration } , 3000);
+    // setTimeout(function(){myaudio.duration } , 3000);
     
     myaudio.play();
     console.log(myaudio.duration);
