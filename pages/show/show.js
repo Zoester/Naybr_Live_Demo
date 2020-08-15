@@ -29,17 +29,6 @@ Page({
     Reviews.find().then((res)=>{
       console.log('reviewTable', res)
     })
-
-  
-    //show one event detail
-    /*ProductCard.find().then((res) => {
-      console.log(res)
-      this.setData({
-        allCard:res.data.objects
-      })
-    })*/
-
-
    //show one event
     ProductCard.get(options.id).then((res)=>{
       console.log(res);
@@ -48,7 +37,6 @@ Page({
         likes:res.data.likes
       })
     });
-
   //pull corresponding reviews
   let query = new wx.BaaS.Query();
   query.compare('product_id', '=', options.id);
@@ -58,9 +46,34 @@ Page({
       reviews: res.data.objects,
     })
   });
-
-
+  let userInfo = wx.getStorageSync('userInfo')
+  this.checkHasBookmarked(userInfo.id, options.id)
   },
+
+  checkHasBookmarked: function(userId, eventId){
+    let page = this
+    console.log("checking", userId, eventId)
+    const Cart = new wx.BaaS.TableObject('cart');
+
+    // compare with user_id and card_id in Cart table and return a boolean to decide whether to show bookmark button
+    let bmQuery1 = new wx.BaaS.Query();
+    bmQuery1.compare('user_id','=', userId);
+  
+    let bmQuery2 = new wx.BaaS.Query();
+    bmQuery2.compare('card_id', '=', eventId);
+  
+    // and 查询
+    let andQuery = wx.BaaS.Query.and(bmQuery1, bmQuery2);
+  
+    Cart.setQuery(andQuery).find().then(res => {
+      console.log("why i", res)
+      page.setData({
+        bookmarked: res.data.objects.length > 0
+      })
+    })
+  },
+
+
 
     //create a new comment
   createReview:function(event){
@@ -115,30 +128,30 @@ Page({
   },
 
   addToBookmark(e){
+    let page = this
     console.log('bookmark',e)
     let bookmark = new wx.BaaS.TableObject('cart')
     bookmark.find().then((res)=>{
       console.log('bookmarkTable', res)
-      this.setData({
+      page.setData({
         bookmarks: res.data.objects,
       })
     })
     
     let newBookmark = bookmark.create();
     const data = {
-      card_id: this.data.productcard.id,
-      user_id:this.data.currentUser.id,
+      card_id: page.data.productcard.id,
+      user_id:page.data.currentUser.id,
     }
     
     newBookmark.set(data);
     newBookmark.save().then((res)=>{
       console.log('save bookmarkres',res);
-      const bookmarkArray = this.data.bookmarks;
+      const bookmarkArray = page.data.bookmarks;
       bookmarkArray.push(res.data);
-
-      this.setData({
+      page.onLoad(page.options)
+      page.setData({
         bookmarks:bookmarkArray,
-
       })
     })
 
