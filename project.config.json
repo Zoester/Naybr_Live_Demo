@@ -83,10 +83,10 @@
 					"scene": null
 				},
 				{
-					"id": -1,
+					"id": 2,
 					"name": "pages/show/show",
 					"pathName": "pages/show/show",
-					"query": "",
+					"query": "id=5f2c02203c0237490921207d",
 					"scene": null
 				},
 				{
@@ -101,6 +101,7 @@
 					"name": "pages/profile/profile",
 					"pathName": "pages/profile/profile",
 					"query": "",
+
 					"scene": null
 				},
 				{
@@ -109,6 +110,7 @@
 					"name": "pages/submit/submit",
 					"pathName": "pages/submit/submit",
 					"query": "",
+
 					"scene": null
 				}
 			]

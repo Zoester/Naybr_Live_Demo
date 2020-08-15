@@ -37,7 +37,7 @@
     <view class="bookMark">
     <button wx:if="{{!currentUser}}" bindtap="navigateToProfile"> Login to Bookmark </button>
     <view wx:else>
-      <button size="mini" type="primary" data-id="{{productcard.id}}" bindtap="addToBookmark">add to bookmark</button>
+      <button size="mini" disabled="{{bookmarked}}" type="primary" data-id="{{productcard.id}}" bindtap="addToBookmark">add to bookmark</button>
     </view>
   </view>
   <view class="reviews">
