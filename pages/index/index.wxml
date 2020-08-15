@@ -1,10 +1,17 @@
 <!--index.wxml-->
-<view class="header">
-  <view class="header-menu">
-    <view class="h3">Listen. Vibe. Laugh. Love. Repeat.</view>    
+<!-- <view class="header"> -->
+  <!-- <view class="header-menu"> -->
+  <scroll-view class="header" scroll-x="true" >
+    <view class="genre-wrapper">
+      <view class="genre {{selectedGenreIndex == index? 'active' : ''}}" bindtap="selectGenre" data-index="{{index}}" data-genre="{{item}}" wx:for="{{genre}}">
+        <text>{{item}}</text>
+      </view>
+    </view>
+  </scroll-view>
+    <!-- </view>  -->
+  <!-- </view> -->
 
-</view>
-</view>
+
 
 <view class="container">
   <view class="grid">
@@ -15,7 +22,10 @@
       <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
       <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
     </view>
-  </view>
+  </view>  
+
+
+
 </view>
 
 
