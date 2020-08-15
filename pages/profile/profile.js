@@ -91,13 +91,13 @@ this.setData({
     wx.BaaS.auth.getCurrentUser().then(user => {
       // user 为 currentUser 对象
     const Bookmarks = new wx.BaaS.TableObject('cart')
-    let query = new wx.BaaS.Query();
+    let bmQuery = new wx.BaaS.Query();
 
     // SHOW BOOKMARKS FOR SPECIFIC USER "ATTENDEE"
     // NEW order with EXPAND will go to table & id 
     console.log("id", user.id)
-    query.compare('user_id', '=', user.id);
-    Bookmarks.setQuery(query).expand(['card_id']).find().then((res) => {
+    bmQuery.compare('user_id', '=', user.id);
+    Bookmarks.setQuery(bmQuery).expand(['card_id']).find().then((res) => {
       console.log("checking if cart works", res)
       this.setData({
         bookmarks: res.data.objects,
@@ -105,10 +105,11 @@ this.setData({
     })
     // SHOW EVENT CREATED BY SPECIFIC USER "ORGANISER"
     let tableName = 'productCard'
-    query.compare('user_id', '=', user.id);
+    let pcQuery = new wx.BaaS.Query()
+    pcQuery.compare('created_by', '=', user.id);
     let Cards = new wx.BaaS.TableObject(tableName)
-    Cards.find().then((res) => {
-      console.log(res.data.objects);
+    Cards.setQuery(pcQuery).find().then((res) => {
+      console.log("res data objects inside orgnizer",res.data.objects);
       this.setData({
         cards: res.data.objects
       })
