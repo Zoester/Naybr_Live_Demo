@@ -12,6 +12,7 @@
           <view class="h2">Likes: {{item.card_id.likes}}</view>
         </view>
         <view>
+        
           <view>
             <image class="productCardImage" src="{{item.card_id.photos}}"></image>
           </view>

@@ -1,5 +1,29 @@
 /* pages/profile/profile.wxss */
 
+.image-card {
+  display: flex;
+  align-items: center;
+  justify-content: column;
+  flex-grow: 1;
+  }
+
+.btn-unsave {
+  color:#666d7a;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  margin: 10px;
+}
+.btn-unsave:hover {
+  opacity: 1;
+  background: linear-gradient #ED6A5A;
+  color: #ED6A5A;
+}
+
+
 /**BANNER**/
 .banner {
   background-size: cover;
@@ -59,9 +83,11 @@
 
 .slider {
   display: flex;
-  justify-content: space-evenly;
-  margin: 5px;
-}
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 10px;
+  }
 /**HEADER**/
 
 .header {
@@ -100,10 +126,12 @@
   box-shadow: 3px 3px 2px 2px #edf2f4;
   width: 100%;
   display: inline-block;
-  margin: 0 0 1em;
+  margin: 0 0 2em;
   overflow: hidden;
   color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
 }
 
 .card-product-inside {

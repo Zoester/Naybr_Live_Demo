@@ -18,8 +18,8 @@
   <view class="slider">
     <view class="h1">My Events</view>
     <van-tabs bind:click="goToTab" type="card">
-      <van-tab title="Attendee">Events your bookmarked...</van-tab>
-      <van-tab title="Organiser">Events your created...</van-tab>
+      <van-tab title="Attendee"></van-tab>
+      <van-tab title="Organiser"></van-tab>
     </van-tabs>
   </view>
   <!-- MY EVENTS PART -->
@@ -31,13 +31,12 @@
       <view class="card-product" wx:for="{{bookmarks}}" wx:for-item="bm">
         <view class="image-card">
           <image mode="aspectFill" class="productCardImage" bindtap="toProductCard" data-id="{{bm.card_id}}" src="{{bm.card_id.photos}}"></image>
-          <button class="btn-unsave" size="mini" type="primary" data-id="{{productcard.id}}" bindtap="deleteBookmark">UNSAVE 
-            <van-icon name="clear" color="white" size="20px"/>
-          </button>
         </view>
+        <view></view>
         <view class="h2" bindtap="toProductCard" data-id="{{bm.card_id}}">{{bm.card_id.name}}</view>
-        <view class="h3" bindtap="toProductCard" data-id="{{bm.card_id}}">{{bm.card_id.description}}</view>
-        <view class="h4" bindtap="toProductCard" data-id="{{bm.card_id}}">Likes: {{bm.card_id.likes}}</view>
+        <view class="h2" bindtap="toProductCard" data-id="{{bm.card_id}}">{{bm.card_id.description}}</view>
+        <view class="h4" bindtap="toProductCard" data-id="{{bm.card_id}}">❤️{{bm.card_id.likes}}</view>
+        <button class="btn-unsave" data-id="{{productcard.id}}" bindtap="deleteBookmark">UNSAVE </button>
       </view>
     </view>
   </view>
@@ -48,13 +47,11 @@
     <view class="card-product" wx:for="{{cards}}" wx:for-item="pc">
       <view wx:for="{{pc.photos}}" wx:for-item="pcPhoto">
         <image mode="aspectFill" class="productCardImage" bindtap="toProductCard" data-id="{{pc.id}}" src="{{pcPhoto}}"></image>
-        <button class="btn-unsave" size="mini" type="primary" data-id="{{productcard.id}}" bindtap="deleteEvent">DELETE 
-          <van-icon name="clear" color="white" size="20px"/>
-        </button>
       </view>
       <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
-      <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
-      <view class="h4" bindtap="toProductCard" data-id="{{pc.id}}">Likes: {{pc.likes}}</view>
+      <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
+      <view class="h4" bindtap="toProductCard" data-id="{{pc.id}}">❤️{{pc.likes}}</view>
+      <button class="btn-unsave" data-id="{{productcard.id}}" bindtap="deleteEvent">DELETE </button>
     </view> 
   </view>
 </view>
