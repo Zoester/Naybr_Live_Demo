@@ -4,20 +4,21 @@
     "pages/logs/logs",
     "pages/cart/cart",
     "pages/show/show",
-    "pages/profile/profile"
+    "pages/profile/profile",
+    "pages/submit/submit"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#fff",
-    "navigationBarTitleText": "🎵 音乐盒 🎵",
+    "navigationBarTitleText": "🎵 Naybr Live 🎵",
     "navigationBarTextStyle": "black"
   },
   "plugins": {
     "sdkPlugin": {
       "version": "3.3.0",
       "provider": "wxc6b86e382a1e3294"
-     }
- },
+    }
+  },
   "tabBar": {
     "list": [
       {
@@ -27,8 +28,8 @@
         "selectedIconPath": "/pages/images/Home.png"
       },
       {
-        "pagePath": "pages/cart/cart",
-        "text": "Bookmarks",
+        "pagePath": "pages/submit/submit",
+        "text": "Create Event",
         "iconPath": "/pages/images/bookmark3.png",
         "selectedIconPath": "/pages/images/bookmark3.png"
       },
