@@ -27,6 +27,7 @@ this.setData({
 })
  },
  toProductCard(event){
+   console.log("event", event)
   let data = event.currentTarget.dataset
   let id = data.id
   console.log("id", id)
