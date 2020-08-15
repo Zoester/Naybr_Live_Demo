@@ -20,7 +20,8 @@ Page({
   onLoad: function () {
     let tableName = 'productCard'
     let Cards = new wx.BaaS.TableObject(tableName)
-    Cards.find().then((res) => {
+    // 1- 100 is offset 0
+    Cards.limit(100).offset(0).find().then((res) => {
       console.log(res.data.objects);
       this.setData({
         cards: res.data.objects
