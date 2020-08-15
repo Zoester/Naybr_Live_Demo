@@ -28,7 +28,10 @@
 			"ignore": [],
 			"disablePlugins": [],
 			"outputPath": ""
-		}
+		},
+		"useIsolateContext": true,
+		"useCompilerModule": true,
+		"userConfirmedUseCompilerModuleSwitch": false
 	},
 	"compileType": "miniprogram",
 	"libVersion": "2.12.0",
@@ -102,8 +105,10 @@
 				},
 				{
 					"id": -1,
-					"name": "Profile",
-					"pathName": "pages/profile/profile",
+
+					"name": "pages/submit/submit",
+					"pathName": "pages/submit/submit",
+					"query": "",
 					"scene": null
 				}
 			]
