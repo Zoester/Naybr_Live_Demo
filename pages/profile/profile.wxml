@@ -18,8 +18,8 @@
   <view class="slider">
     <view class="h1">My Events</view>
     <van-tabs bind:click="goToTab" type="card">
-      <van-tab title="Attendee">Events your bookmarked...</van-tab>
-      <van-tab title="Organiser">Events your created...</van-tab>
+      <van-tab title="Attendee"></van-tab>
+      <van-tab title="Organiser"></van-tab>
     </van-tabs>
   </view>
   <!-- MY EVENTS PART -->
@@ -53,8 +53,9 @@
         </button>
       </view>
       <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
-      <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
-      <view class="h4" bindtap="toProductCard" data-id="{{pc.id}}">Likes: {{pc.likes}}</view>
+      <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
+      <view class="h4" bindtap="toProductCard" data-id="{{pc.id}}">❤️{{pc.likes}}</view>
+      <button class="btn-unsave" data-id="{{productcard.id}}" bindtap="deleteEvent">DELETE </button>
     </view> 
   </view>
 </view>
