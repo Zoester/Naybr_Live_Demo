@@ -29,7 +29,7 @@
   <view wx:if="{{tabView =='Attendee'}}" class="container2">
     <view class="grid">
       <view class="card-product" wx:for="{{bookmarks}}" wx:for-item="bm">
-        <view class="image-card" wx:for="{{bum.card_id.photos}}" wx:for-item="bmPhoto">
+        <view class="image-card" wx:for="{{bm.card_id.photos}}" wx:for-item="bmPhoto">
           <image mode="aspectFill" class="productCardImage" bindtap="toProductCard" data-id="{{bm.card_id.id}}" src="{{bmPhoto}}"></image>
           <button class="btn-unsave" size="mini" type="primary" data-id="{{productcard.id}}" bindtap="deleteBookmark">UNSAVE 
             <van-icon name="clear" color="white" size="20px"/>
