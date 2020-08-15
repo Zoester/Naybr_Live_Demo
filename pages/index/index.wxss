@@ -2,30 +2,12 @@
 
 /**HEADER**/
 
-.header {
-  background-color: white;
-  height: 45px;
-  width: 100%;
-  margin: 0px 0px 2px 0px;
-  box-shadow: 0px 3px 15px #DCD7D9;
-  position: fixed;
-  top:0;
-  display: flex;
-  align-items: center;
-  justify-content: space-evenly;
-}
-
-
-.header .header-menu {
-  color: rgb(158, 154, 154);
-  font-size: 14px;
-}
-
 /**CONTAINER**/
 
 .container {
   margin-left: 0.5em;
   margin-right: 0.5em;
+  padding: 160rpx 0;
 }
 
 .grid {
@@ -36,7 +18,7 @@
 
 .card-product {
   border-radius: 3%;
-  box-shadow: 3px 3px 2px 2px #edf2f4;
+  box-shadow: 3px 3px 2px 2px #CED3DC;
   width: 100%;
   display: inline-block;
   margin: 0 0 10px;
@@ -57,5 +39,40 @@
 .card-product .h3 {
   font-size: 11px;
   margin-bottom: 10px;
+}
+
+
+
+.header {
+  background-color: white;
+  height: 60px;
+  width: 100%;
+  /* margin: 0px 0px 2px 0px; */
+  box-shadow: 0px 3px 15px #CED3DC;
+  position: fixed;
+  top:0;
+  box-sizing: border-box;
+}
+
+.genre-wrapper {
+  /* width: 100%; */
+  display: flex;
+  margin: 20px 5px;
+  box-sizing: border-box;
+
+}
+
+.genre {
+  font-size: 14px;
+  width: 100px;
+  margin: 0 30rpx;
+  height: 35px;
+  white-space: nowrap;
+  color: #ABA9C3;
+}
+
+.active {
+  color:#ED6A5A;
+  font-weight: bold;
 }
 
