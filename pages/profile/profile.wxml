@@ -1,17 +1,60 @@
 <!--pages/profile/profile.wxml-->
-<view class="container">
-  <view class="welcome">
-    <text class="welcome_text">{{welcome_text}}</text>
-  </view>
+<view class="banner" style="scale-to-fill; height: 40vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/pages/images/background-profile.jpg);">
+  <view class="h1">MY PROFILE</view>
   <view class="userinfo">
-    <button wx:if="{{showLoginBtn}}" open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> Log in </button>
+    <button wx:if="{{showLoginBtn}}" open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> Please Log in </button>
     <block wx:else>
+      <view class="p">Your saved items</view>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatar}}" mode="cover"></image>
       <text class="userinfo-nickname">{{userInfo.nickname}}</text>
-      <!-- <text class="userinfo-country">{{userInfo.country}}</text> -->
+      <view class="icon">🎵</view>
+<!-- <text class="userinfo-country">{{userInfo.country}}</text> -->
     </block>
   </view>
-  <view class="icon">🎵</view>
 </view>
 
+<!-- MY EVENTS SLIDER -->
 
+  <view class="slider">
+    <view class="h1">My Events</view>
+    <van-tabs bind:click="goToTab" type="card">
+      <van-tab title="Attendee">Events your bookmarked...</van-tab>
+      <van-tab title="Organiser">Events your created...</van-tab>
+    </van-tabs>
+  </view>
+  <!-- MY EVENTS PART -->
+
+
+   <!-- Attendee -->
+  <view wx:if="{{tabView =='Attendee'}}" class="container2">
+    <view class="grid">
+      <view class="card-product" wx:for="{{bookmarks}}" wx:for-item="bm">
+        <view class="image-card">
+          <image mode="aspectFill" class="productCardImage" bindtap="toProductCard" data-id="{{bm.card_id}}" src="{{bm.card_id.photos}}"></image>
+          <button class="btn-unsave" size="mini" type="primary" data-id="{{productcard.id}}" bindtap="deleteBookmark">UNSAVE 
+            <van-icon name="clear" color="white" size="20px"/>
+          </button>
+        </view>
+        <view class="h2" bindtap="toProductCard" data-id="{{bm.card_id}}">{{bm.card_id.name}}</view>
+        <view class="h3" bindtap="toProductCard" data-id="{{bm.card_id}}">{{bm.card_id.description}}</view>
+        <view class="h4" bindtap="toProductCard" data-id="{{bm.card_id}}">Likes: {{bm.card_id.likes}}</view>
+      </view>
+    </view>
+  </view>
+
+   <!-- Organiser -->
+  <view wx:if="{{tabView =='Organiser'}}" class="container2">
+  <view class="grid">
+    <view class="card-product" wx:for="{{cards}}" wx:for-item="pc">
+      <view wx:for="{{pc.photos}}" wx:for-item="pcPhoto">
+        <image mode="aspectFill" class="productCardImage" bindtap="toProductCard" data-id="{{pc.id}}" src="{{pcPhoto}}"></image>
+        <button class="btn-unsave" size="mini" type="primary" data-id="{{productcard.id}}" bindtap="deleteEvent">DELETE 
+          <van-icon name="clear" color="white" size="20px"/>
+        </button>
+      </view>
+      <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
+      <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
+      <view class="h4" bindtap="toProductCard" data-id="{{pc.id}}">Likes: {{pc.likes}}</view>
+    </view> 
+  </view>
+</view>
