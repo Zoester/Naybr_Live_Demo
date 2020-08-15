@@ -45,12 +45,19 @@ this.setData({
     console.log("id", id)
     let Bookmark = new wx.BaaS.TableObject('cart')
     Bookmark.delete(id).then(res => {
+      const newBookmarks = this.data.bookmarks;
+      // console.log("res data in deletebookmark", res.data)
+      const result = newBookmarks.filter(function(value, index, arr){ return id == value.id})
+      this.setData({
+        bookmarks: result
+      })  
       wx.showToast({
         title: 'Deleted!',
         icon: 'success',
         duration: 4000,
         mask: true,
-      });
+      })
+      
       // success
     }, err => {
       // err
@@ -64,6 +71,12 @@ this.setData({
       console.log("id", id)
       let Product = new wx.BaaS.TableObject('productCard')
       Product.delete(id).then(res => {
+        const newProducts = this.data.cards;
+        // console.log("res data in deletebookmark", res.data)
+        const result = newProducts.filter(function(value, index, arr){ return id == value.id})
+        this.setData({
+          cards: result
+        })  
         wx.showToast({
           title: 'Deleted!',
           icon: 'success',

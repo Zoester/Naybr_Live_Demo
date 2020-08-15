@@ -31,7 +31,7 @@
       <view class="card-product" wx:for="{{bookmarks}}" wx:for-item="bm">
         <view class="image-card" wx:for="{{bm.card_id.photos}}" wx:for-item="bmPhoto">
           <image mode="aspectFill" class="productCardImage" bindtap="toProductCard" data-id="{{bm.card_id.id}}" src="{{bmPhoto}}"></image>
-          <button class="btn-unsave" size="mini" type="primary" data-id="{{productcard.id}}" bindtap="deleteBookmark">UNSAVE 
+          <button class="btn-unsave" size="mini" type="primary" data-id="{{bm.id}}" bindtap="deleteBookmark">UNSAVE 
             <van-icon name="clear" color="white" size="20px"/>
           </button>
         </view>
@@ -46,9 +46,9 @@
   <view wx:if="{{tabView =='Organiser'}}" class="container2">
   <view class="grid">
     <view class="card-product" wx:for="{{cards}}" wx:for-item="pc">
-      <view wx:for="{{pc.photos}}" wx:for-item="pcPhoto">
-        <image mode="aspectFill" class="productCardImage" bindtap="toProductCard" data-id="{{pc.id}}" src="{{pcPhoto}}"></image>
-        <button class="btn-unsave" size="mini" type="primary" data-id="{{productcard.id}}" bindtap="deleteEvent">DELETE 
+      <view>
+        <video bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.vidURL}}"></video>
+        <button class="btn-unsave" size="mini" type="primary" data-id="{{pc.id}}" bindtap="deleteEvent">DELETE 
           <van-icon name="clear" color="white" size="20px"/>
         </button>
       </view>
