@@ -20,14 +20,14 @@ Page({
   },
 
     //Show Events filtered by "Attendee" / "Organiser"
- goToTab: function (event) {
-console.log(event)
-this.setData({
-  tabView: event.detail.title,
-})
- },
+  goToTab: function (event) {
+    console.log(event)
+    this.setData({
+      tabView: event.detail.title,
+    })
+  },
  toProductCard(event){
-   console.log("event", event)
+  console.log("event", event)
   let data = event.currentTarget.dataset
   let id = data.id
   console.log("id", id)
