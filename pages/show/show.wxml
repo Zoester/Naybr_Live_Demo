@@ -3,7 +3,8 @@
 
 <!--Photo Header-->
 <view class="photo">
-  <image class="image" mode="aspectFill" src="{{productcard.photos}}"></image>
+  <image wx:if="{{productcard.photos}}" class="image" mode="aspectFill" src="{{productcard.photos}}"></image>
+  <video wx:if="{{productcard.vidURL}}" class="video-cover" mode='aspectFill' src="{{productcard.vidURL}}"></video>
 </view>
 
 <!--Name and Likes-->
@@ -21,10 +22,10 @@
 
 <!--Details-->
 
-    <view class="h3">{{productcard.description}}</view>
-    <view class="h3">{{productcard.description_2}}</view>
-    <view class="h4">{{productcard.price}}元</view>
-    <view class="h4">{{productcard.date}}</view>
+    <view wx:if="{{productcard.description}}" class="h3">{{productcard.description}}</view>
+    <view wx:if="{{productcard.description_2}}" class="h3">{{productcard.description_2}}</view>
+    <view wx:if="{{productcard.price}}" class="h4">{{productcard.price}}元</view>
+    <view class="h4">{{productcard.startTime}}</view>
     <view class="h4">{{productcard.location}}</view>
 
 </view>
