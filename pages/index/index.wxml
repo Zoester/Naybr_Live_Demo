@@ -15,17 +15,14 @@
 
 <view class="container">
   <view class="grid">
-    <view class="card-product" wx:for="{{cards}}" wx:for-item="pc">
-      <view wx:for="{{pc.photos}}" wx:for-item="pcPhoto">
-        <image mode="aspectFill" class="productCardImage" bindtap="toProductCard" data-id="{{pc.id}}" src="{{pcPhoto}}"></image>
-      </view>
+      <view class="card-product" wx:for="{{cards}}" wx:for-item="pc">
+        <image wx:if="{{pc.photos}}" class="productCardImage" mode="aspectFill" bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.photos[0]}}"></image>
+        <video wx:if="{{pc.vidURL}}" class="video-cover" mode='aspectFill' bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.vidURL}}"></video>
       <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
-      <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
+      <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.startTime}}</view>
+      <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.location}}</view>
     </view>
   </view>  
-
-
-
 </view>
 
 

@@ -33,17 +33,29 @@ Page({
     
     getLocation: function() {
       let that = this
-      wx.chooseLocation({
-        success(res){
-          console.log(res)
-          that.setData({
-            address: res.address,
-            address_name: res.name,
-            longitude: res.longitude,
-            latitude: res.latitude
-          })
+      wx.getSetting({
+        success(res) {
+          if (!res.authSetting['scope.userLocation']) {
+            wx.authorize({
+              scope: 'scope.userLocation',
+              success () {
+                wx.chooseLocation({
+                  success(res){
+                    console.log(res)
+                    that.setData({
+                      address: res.address,
+                      address_name: res.name,
+                      longitude: res.longitude,
+                      latitude: res.latitude
+                    })
+                  }
+                })
+              }
+            })
+          }
         }
       })
+      
     },
 
     onDateTimePicker:function(e){
