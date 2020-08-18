@@ -28,7 +28,7 @@
       {
         "pagePath": "pages/index/index",
         "text": "Home",
-        "iconPath": "/pages/images/home.png",
+        "iconPath": "/pages/images/Home.png",
         "selectedIconPath": "/pages/images/home_HL_big.png"
       },
       {
