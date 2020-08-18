@@ -52,6 +52,18 @@ Page({
                 })
               }
             })
+          } else {
+              wx.chooseLocation({
+                success(res){
+                  console.log(res)
+                  that.setData({
+                    address: res.address,
+                    address_name: res.name,
+                    longitude: res.longitude,
+                    latitude: res.latitude
+                  })
+                }
+              })
           }
         }
       })
@@ -89,13 +101,10 @@ Page({
 
       newCard.save().then((res)=>{
         console.log('save res',res);
-        //const newReviews = this.data.reviews;
-        // newReviews.push(res.data);
-  
-        // this.setData({
-          
-  
-        //})
+        wx.switchTab({
+          url: '/pages/profile/profile?toView=organiser',
+        })
+        getApp().globalData.profileToTabTwo = true
       }) 
 
 
