@@ -11,12 +11,13 @@ Page({
     map:false,
     markers: [{}],
     userLongitude:'121.446648',
-    userLatitude:'31.218967'
+    userLatitude:'31.218967',
   },
 
   toProductCard(event){
     let data = event.currentTarget.dataset
-    let id = data.id
+    console.log('event', event)
+    let id = data.id || event.markerId;
     console.log("id", id)
     wx.navigateTo({
       url: `/pages/show/show?id=${id}`
@@ -49,9 +50,11 @@ Page({
       return event.latitude && event.longitude
     })
     console.log('marker',markers)
+    console.log('res',res)
     this.setData({
       events: res.data.objects,
-      markers
+      markers,
+      //markerID: res.data.objects.id
     })
   })
 },
