@@ -20,24 +20,28 @@
     }
   },
   "tabBar": {
+    "color": "#7A7E83",
+    "selectedColor": "#ED6A5A",
+    "borderStyle": "black",
+    "backgroundColor": "#ffffff",
     "list": [
       {
         "pagePath": "pages/index/index",
         "text": "Home",
-        "iconPath": "/pages/images/Home.png",
-        "selectedIconPath": "/pages/images/Home.png"
+        "iconPath": "/pages/images/home.png",
+        "selectedIconPath": "/pages/images/home_HL_big.png"
       },
       {
         "pagePath": "pages/submit/submit",
         "text": "Create Event",
-        "iconPath": "/pages/images/bookmark3.png",
-        "selectedIconPath": "/pages/images/bookmark3.png"
+        "iconPath": "/pages/images/create.png",
+        "selectedIconPath": "/pages/images/create_HL_big.png"
       },
       {
         "pagePath": "pages/profile/profile",
         "text": "Profile",
         "iconPath": "/pages/images/user.png",
-        "selectedIconPath": "/pages/images/user.png"
+        "selectedIconPath": "/pages/images/user_HL_big.png"
       }
     ]
   },
