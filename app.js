@@ -18,5 +18,6 @@ App({
   globalData: {
     userInfo: wx.getStorageSync('userInfo') || null,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    profileToTabTwo: false
   }
 })

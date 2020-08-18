@@ -17,7 +17,7 @@
 
   <view class="slider">
     <view class="h1">My Events</view>
-    <van-tabs bind:click="goToTab" type="card">
+    <van-tabs bind:click="goToTab" type="card" active="{{active}}">
       <van-tab title="Attendee"></van-tab>
       <van-tab title="Organiser"></van-tab>
     </van-tabs>
