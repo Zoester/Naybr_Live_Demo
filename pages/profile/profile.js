@@ -9,7 +9,8 @@ Page({
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
     cards: [],
     bookmarks:[], 
-    tabView: "Attendee"
+    tabView: "Attendee",
+    active: 0
   },
 
   //事件处理函数
@@ -47,7 +48,7 @@ Page({
     Bookmark.delete(id).then(res => {
       const newBookmarks = this.data.bookmarks;
       // console.log("res data in deletebookmark", res.data)
-      const result = newBookmarks.filter(function(value, index, arr){ return id == value.id})
+      const result = newBookmarks.filter(function(value, index, arr){ return id != value.id})
       this.setData({
         bookmarks: result
       })  
@@ -73,7 +74,7 @@ Page({
       Product.delete(id).then(res => {
         const newProducts = this.data.cards;
         // console.log("res data in deletebookmark", res.data)
-        const result = newProducts.filter(function(value, index, arr){ return id == value.id})
+        const result = newProducts.filter(function(value, index, arr){ return id != value.id})
         this.setData({
           cards: result
         })  
@@ -88,8 +89,20 @@ Page({
         // err
       })
     },
-
-  onLoad: function () {
+    //tab can't pass any option
+    onShow: function() {
+      this.onLoad()
+      if (getApp().globalData.profileToTabTwo){
+        
+        this.setData({
+          tabView: 'Organiser',
+          active: 1
+        })
+        getApp().globalData.profileToTabTwo = false
+      } 
+    },
+  onLoad: function (options) {
+    console.log("checking if tab has options", options)
     wx.getUserInfo({
       success: (res)=>{
         console.log(res)
