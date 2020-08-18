@@ -91,8 +91,9 @@ Page({
     },
     //tab can't pass any option
     onShow: function() {
+      this.onLoad()
       if (getApp().globalData.profileToTabTwo){
-        this.onLoad()
+        
         this.setData({
           tabView: 'Organiser',
           active: 1
