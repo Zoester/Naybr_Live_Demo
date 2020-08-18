@@ -5,8 +5,7 @@
     "pages/cart/cart",
     "pages/show/show",
     "pages/profile/profile",
-    "pages/submit/submit",
-    "pages/map/map"
+    "pages/submit/submit"
   ],
   "window": {
     "backgroundTextStyle": "light",
