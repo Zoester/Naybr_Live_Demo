@@ -47,7 +47,7 @@ Page({
     Bookmark.delete(id).then(res => {
       const newBookmarks = this.data.bookmarks;
       // console.log("res data in deletebookmark", res.data)
-      const result = newBookmarks.filter(function(value, index, arr){ return id == value.id})
+      const result = newBookmarks.filter(function(value, index, arr){ return id != value.id})
       this.setData({
         bookmarks: result
       })  
@@ -73,7 +73,7 @@ Page({
       Product.delete(id).then(res => {
         const newProducts = this.data.cards;
         // console.log("res data in deletebookmark", res.data)
-        const result = newProducts.filter(function(value, index, arr){ return id == value.id})
+        const result = newProducts.filter(function(value, index, arr){ return id != value.id})
         this.setData({
           cards: result
         })  
