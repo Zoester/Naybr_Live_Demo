@@ -106,6 +106,13 @@
 					"pathName": "pages/submit/submit",
 					"query": "",
 					"scene": null
+				},
+				{
+					"id": 6,
+					"name": "pages/map/map",
+					"pathName": "pages/map/map",
+					"query": "",
+					"scene": null
 				}
 			]
 		}
