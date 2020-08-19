@@ -2,7 +2,8 @@
 
   "usingComponents": {
     "van-card":"../../dist/card/index",
-    "van-field":"../../dist/field/index"
+    "van-field":"../../dist/field/index",
+    "van-icon":"../../dist/icon/index"
   }
 
 }
