@@ -1,0 +1,11 @@
+{
+  "usingComponents": {
+    "DateTimePicker":"/components/datetimepicker/datetimepicker"
+  }, 
+
+  "navigationBarBackgroundColor": "#ffffff",
+  "navigationBarTextStyle": "black",
+  "navigationBarTitleText": "🎵 Give Us Da Deets 🎵",
+  "backgroundColor": "#eeeeee",
+  "backgroundTextStyle": "light"
+}

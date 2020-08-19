@@ -1,9 +1,63 @@
 /* pages/profile/profile.wxss */
+
+/**CONTAINER**/
 .container {
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  font-size: 18px;
+  margin-left: 0.5em;
+  margin-right: 0.5em;
+  padding: 160rpx 0;
 }
 
+.image-card {
+  display: flex;
+  align-items: center;
+  justify-content: column;
+  flex-grow: 1;
+  }
+
+.btn-unsave {
+  background-color:#CED3DC;
+  color:white;
+  border: 1px solid #4A4A4A;
+  padding: 8px 24px;
+  border-radius: 10px;
+  font-weight: lighter;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+  margin: 10px;
+}
+.btn-unsave:hover {
+  opacity: 1;
+  background-color: linear-gradient #ED6A5A;
+  color: #ED6A5A;
+}
+
+
+/**BANNER**/
+.banner {
+  background-size: cover;
+  background-position: center;
+  text-align: center;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+  padding:20px;
+}
+
+.banner .h1 {
+  font-size: 30px;
+  margin: 0;
+  color: white;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
+.banner .p {
+  font-size: 16px;
+  color: white;
+  opacity: .7;
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  margin-top: 10px;
+}
+
+
+/**USER PROFILE**/
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -28,3 +82,84 @@
 .icon {
   font-size: larger;
 }
+
+.slider {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-grow: 1;
+  margin: 10px;
+  }
+/**HEADER**/
+
+.header {
+  background-color: white;
+  height: 45px;
+  width: 100%;
+  margin: 0px 0px 40px 0px;
+  box-shadow: 0px 3px 15px #DCD7D9;
+  position: fixed;
+  top:0;
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+
+.header .header-menu {
+  color: lightgrey;
+  font-size: 14px;
+  
+}
+.productCardImage {
+  width: 100%;
+  height: 160px;
+}
+
+.video-cover {
+  width: 100%;
+  height: 160px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-gap: 20px;
+}
+
+.card-product {
+  border-radius: 3%;
+  box-shadow: 3px 3px 2px 2px #CED3DC;
+  width: 100%;
+  display: inline-block;
+  margin: 0 0 10px;
+  overflow: hidden;
+  color: black;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+
+}
+
+.card-product-inside {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+}
+
+.card-product .h1 {
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.card-product .h2 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #ED6A5A;
+  font-weight: bold;
+
+}
+
+.card-product .h3 {
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
