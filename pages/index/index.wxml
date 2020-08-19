@@ -1,26 +1,42 @@
 <!--index.wxml-->
-<!-- <view class="header"> -->
-  <!-- <view class="header-menu"> -->
+<!-- introduction -->
+
+<view class="intro-container">
+  <image class="intro-img" mode="aspectFll" src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597838312829&di=bb2aa0b3273cc5cfcb37d101b8819581&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180201%2Fe293d9a607164136b035373036443158.jpeg"></image>
+  <!-- <view class="h1"> Live Music. Live Longer. Naybr Live.</view>   -->
+</view>
+
+<!-- Genre Scroll -->
   <scroll-view class="header" scroll-x="true" >
+
     <view class="genre-wrapper">
       <view class="genre {{selectedGenreIndex == index? 'active' : ''}}" bindtap="selectGenre" data-index="{{index}}" data-genre="{{item}}" wx:for="{{genre}}">
         <text>{{item}}</text>
       </view>
     </view>
+
   </scroll-view>
-    <!-- </view>  -->
-  <!-- </view> -->
 
-<button wx:if="{{!map}}" bindtap="gotoMap">MAP</button>
-<button wx:else bindtap="gotoList">List</button>
+<!-- Text -->
 
+<view class="intro-text">
+  <view class="h1" style="font-size:22px; margin-bottom: 5px">WELCOME TO THE NAYBRHOOD</view>
+  <view class="p" style="font-weight:lighter; font-size:18px">Find and post live music. </view>
+  <view style="font-weight:lighter; font-size:18px">Support local artists. </view>
+  <view style="font-weight:lighter; font-size:18px">Make magic. </view>
+</view>
 
+<!-- Map -->
+  <button class="map-button" wx:if="{{!map}}" bindtap="gotoMap">Map View</button>
+  <button class="map-button" wx:else bindtap="gotoList">List View</button>
+
+<!-- Cards -->
 <view wx:if="{{!map}}" class="container">
   <view class="grid">
       <view class="card-product" wx:for="{{events}}" wx:for-item="pc">
+      <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
         <image wx:if="{{pc.photos}}" class="productCardImage" mode="aspectFill" bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.photos[0]}}"></image>
         <video wx:if="{{pc.vidURL}}" class="video-cover" mode='aspectFill' bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.vidURL}}"></video>
-      <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
       <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.startTime}}</view>
       <view class="h3" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.location}}</view>
     </view>
