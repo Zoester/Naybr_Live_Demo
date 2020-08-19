@@ -20,8 +20,10 @@
 <!-- Text -->
 
 <view class="intro-text">
-  <view class="h1">WELCOME TO THE NAYBRHOOD</view>
-  <view class="p">Find live music happening near you, right now. Support local artists and find magic. </view>
+  <view class="h1" style="font-size:22px; margin-bottom: 5px">WELCOME TO THE NAYBRHOOD</view>
+  <view class="p" style="font-weight:lighter; font-size:18px">Find and post live music. </view>
+  <view style="font-weight:lighter; font-size:18px">Support local artists. </view>
+  <view style="font-weight:lighter; font-size:18px">Make magic. </view>
 </view>
 
 <!-- Map -->

@@ -54,7 +54,7 @@
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
 }
 
-.intro-text .h1 {
+/* .intro-text .h1 {
   font-size: 22px;
   letter-spacing: 0.3em;
 }
@@ -62,7 +62,7 @@
 .intro-text .p {
   font-size: 18px;
   font-weight: lighter;
-}
+} */
 
 /* MAP */
 
