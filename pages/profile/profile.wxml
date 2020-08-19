@@ -1,11 +1,11 @@
 <!--pages/profile/profile.wxml-->
-<view class="banner" style="scale-to-fill; height: 30vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(/pages/images/background-profile.jpg);">
-  <view class="h1">MY PROFILE</view>
+<view class="banner" style="scale-to-fill; height: 30vh; background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2010932387,1570725686&fm=26&gp=0.jpg);">
+  <view class="h1">My Profile</view>
   <view class="userinfo">
     <button wx:if="{{showLoginBtn}}" open-type="getUserInfo" bindgetuserinfo="userInfoHandler"> Please Log in </button>
     <block wx:else>
       <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatar}}" mode="cover"></image>
-      <text class="userinfo-nickname">🎵 {{userInfo.nickname}}</text>
+      <text class="userinfo-nickname">{{userInfo.nickname}}</text>
 <!-- <text class="userinfo-country">{{userInfo.country}}</text> -->
     </block>
   </view>
@@ -14,7 +14,7 @@
 <!-- MY EVENTS SLIDER -->
 
   <view class="slider">
-    <view class="h1">My Events</view>
+    <view class="h1">My Bookmarks</view>
     <van-tabs bind:click="goToTab" type="card" active="{{active}}">
       <van-tab title="Attendee"></van-tab>
       <van-tab title="Organiser"></van-tab>
@@ -35,8 +35,17 @@
         <view class="h2" bindtap="toProductCard" data-id="{{bm.card_id.id}}">{{bm.card_id.name}}</view>
         <view class="h3" bindtap="toProductCard" data-id="{{bm.card_id.id}}">{{bm.card_id.description}}</view>
         <view class="slider">
-          <view class="h4" bindtap="toProductCard" data-id="{{bm.card_id.id}}">❤️ {{bm.card_id.likes}}</view>
-          <button class="btn-unsave" data-id="{{bm.id}}" bindtap="deleteBookmark">UNSAVE </button>
+          <!-- <view class="h4" bindtap="toProductCard" data-id="{{bm.card_id.id}}">❤️ {{bm.card_id.likes}}</view> -->
+          <van-icon 
+          name="like" 
+          size="25"
+          class="like-icon {{ active }}"
+          bindtap="toProductCard" 
+          data-id="{{bm.card_id.id}}"/>
+          
+        <view style="margin-left:5px"> {{bm.card_id.likes}} </view>
+
+          <button class="btn-unsave" data-id="{{bm.id}}" bindtap="deleteBookmark">Remove</button>
         </view>
       </view>
     </view>

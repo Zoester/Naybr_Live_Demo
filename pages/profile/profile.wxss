@@ -2,10 +2,12 @@
 
 /**CONTAINER**/
 .container {
-  margin-left: 0.5em;
-  margin-right: 0.5em;
-  padding: 160rpx 0;
+  margin-left: 1em;
+  margin-right: 1em;
+  padding: 40rpx 0;
+  color:white;
 }
+
 
 .image-card {
   display: flex;
@@ -15,21 +17,19 @@
   }
 
 .btn-unsave {
-  background-color:#CED3DC;
+  background-color:#ED6A5A;
   color:white;
-  border: 1px solid #4A4A4A;
-  padding: 8px 24px;
+  /* border: 1px solid #4A4A4A; */
   border-radius: 10px;
   font-weight: lighter;
-  opacity: 0.6;
-  transition: opacity 0.3s ease;
-  margin: 10px;
+  /* transition: opacity 0.3s ease; */
 }
-.btn-unsave:hover {
+
+/* .btn-unsave:active {
   opacity: 1;
   background-color: linear-gradient #ED6A5A;
   color: #ED6A5A;
-}
+} */
 
 
 /**BANNER**/
@@ -39,20 +39,25 @@
   text-align: center;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding:20px;
+  box-shadow: 0px 1px 15px #CED3DC;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .banner .h1 {
-  font-size: 30px;
+  font-size: 26px;
   margin: 0;
   color: white;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  /* text-shadow: 1px 1px 3px rgba(0,0,0,0.2); */
 }
 
 .banner .p {
-  font-size: 16px;
+  font-size: 20px;
   color: white;
   opacity: .7;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+  /* text-shadow: 1px 1px 3px rgba(0,0,0,0.2); */
   margin-top: 10px;
 }
 
@@ -72,7 +77,8 @@
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: white;
+  font-size: 18px;
 }
 
 .usermotto {
@@ -90,6 +96,14 @@
   flex-grow: 1;
   margin: 10px;
   }
+
+.slider .h1 {
+  font-size: 18px;
+  margin: 20px 10px;
+  color: black;
+  font-weight: bold;
+  }
+
 /**HEADER**/
 
 .header {
@@ -128,38 +142,31 @@
 }
 
 .card-product {
-  border-radius: 3%;
-  box-shadow: 3px 3px 2px 2px #CED3DC;
+  box-shadow: 0 0 5px #CED3DC;
   width: 100%;
   display: inline-block;
-  margin: 0 0 10px;
+  margin-bottom: 22px;
   overflow: hidden;
   color: black;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-
 }
 
 .card-product-inside {
   display: flex;
   align-items: center;
-  justify-content: space-evenly;
+  justify-content: space-between;
 }
 
-.card-product .h1 {
-  font-size: 18px;
-  margin-bottom: 10px;
-}
-
+/* card info */
 .card-product .h2 {
-  font-size: 16px;
-  margin-bottom: 10px;
-  color: #ED6A5A;
-  font-weight: bold;
-
+  font-size: 18px;
+  margin: 10px;
+  color:black;
 }
 
 .card-product .h3 {
-  font-size: 14px;
-  margin-bottom: 10px;
+  font-size: 16px;
+  margin: 10px;
+  font-weight: lighter;
 }
 
