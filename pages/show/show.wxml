@@ -14,7 +14,14 @@
   <view class="name.like">
     <view class="h2">{{productcard.name}}</view>
     <view class="likes">
-    <view data-id="{{productcard.id}}" bindtap="voteUp">❤️</view>
+    <!-- <view data-id="{{productcard.id}}" bindtap="voteUp">❤️</view> -->
+    <van-icon 
+      name="like" 
+      size="25"
+      class="like-icon {{ active }}"
+      data-id="{{productcard.id}}" 
+      bindtap="voteUp"/>
+
     <view>{{likes}}</view>
   </view>
 
@@ -30,17 +37,19 @@
 
 </view>
 
+<!-- Bookmark -->
+    <view class="bookMark">
+    <button wx:if="{{!currentUser}}" bindtap="navigateToProfile"> Login to Bookmark </button>
+    <view wx:else>
+      <button class="bookmark-button" disabled="{{bookmarked}}" data-id="{{productcard.id}}" bindtap="addToBookmark">Bookmark It!</button>
+    </view>
+  </view>
+
 </view>
 <!--Reviews-->
 
 <view class="container_reviews">
 
-    <view class="bookMark">
-    <button wx:if="{{!currentUser}}" bindtap="navigateToProfile"> Login to Bookmark </button>
-    <view wx:else>
-      <button size="mini" disabled="{{bookmarked}}" type="primary" data-id="{{productcard.id}}" bindtap="addToBookmark">add to bookmark</button>
-    </view>
-  </view>
   <view class="reviews">
 
     <view class="review-style">Read what others said:</view>
@@ -49,14 +58,16 @@
     </view>
   
     <form bindsubmit="createReview" wx:if="{{currentUser}}">
-        <view class="review-input" style="width: 100%; margin-top: 20rpx;">
+        <view class="review-input" style="width: 100%; margin-top: 20rpx;font-size:16px">
             <input style="padding: 15rpx;" name="content" placeholder="Type Here..." />
         </view>
 
-      <view class="submit-button">
-        <button size="mini" type="primary" formType="submit">Add Review</button>
-      </view>
+        <view class="submit-button">
+          <button class="review-button" formType="submit">Add Review</button>
+        </view>
+    
     </form>
+
 
   </view>
 </view>
