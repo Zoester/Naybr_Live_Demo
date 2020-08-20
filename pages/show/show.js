@@ -2,6 +2,8 @@
 
 const app = getApp();
 
+const moment = require("moment")
+
 Page({
 
   /**
@@ -33,7 +35,10 @@ Page({
     ProductCard.get(options.id).then((res)=>{
       console.log(res);
       this.setData({
-        productcard: res.data,
+        productcard: {
+          ...res.data,
+          startTime: moment(res.data.startTime).format("YYYY-MM-DD hh:mm")
+        },
         likes:res.data.likes
       })
     });

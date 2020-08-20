@@ -1,4 +1,7 @@
 //index.js
+
+const moment = require("moment")
+
 //获取应用实例
 const app = getApp()
 const genre = ['Blues & Jazz', 'Classical', 'Country', 'EDM','Folk & Indie', 'Hip-hop', 'Reggae', 'Rock', 'Latin', 'Pop']
@@ -25,19 +28,40 @@ Page({
   },
   
   onLoad: function () {
+    let that = this
     let tableName = 'productCard'
+    let now = new Date()
+    console.log(now)
     let Cards = new wx.BaaS.TableObject(tableName)
-    // 1- 100 is offset 0
-  //   Cards.limit(100).offset(0).find().then((res) => {
-  //     console.log('card content', res.data.objects);
-  //     this.setData({
-  //       events: res.data.objects
-  //     })
-  //   });
-  // },
+  //   let queryTime = new wx.BaaS.Query(tableName)
+  //   // queryTime.compare('startTime', '>', now)
+
+  //   Cards.setQuery(queryTime).find().then((res)=>{
+  //   console.log('eventNow',res)
+  //   that.setData({
+  //     eventNow: res.data.objects,
+  //   })
+  // })
+
+
+
   Cards.limit(100).offset(0).find().then((res) => {
     console.log('card content', res.data.objects);
-    let markers = res.data.objects.map((event, index) => {
+    const filteredEvents = res.data.objects.filter((event) => {
+      if(!event.startTime) return false;
+
+      if(new Date(event.startTime).getTime() < now.getTime() + 1800000) {
+        return false;
+      }
+      return true;
+    }).map(event => {
+      return {
+        ...event,
+        startTime: moment(event.startTime).format("YYYY-MM-DD hh:mm")
+      }
+    });
+
+    let markers = filteredEvents.map((event, index) => {
         return {
           latitude:event.latitude,
           longitude:event.longitude,
@@ -51,14 +75,27 @@ Page({
     })
     console.log('marker',markers)
     console.log('res',res)
+
     this.setData({
-      events: res.data.objects,
+      events: filteredEvents,
       markers,
-      //markerID: res.data.objects.id
     })
   })
 },
 
+//filter by time, show events happening within an hour
+//     eventNow: function(e){
+//       let tableName = 'productCard'
+//       let Cards = new wx.BaaS.TableObject(tableName)
+//       let queryTime = new wx.BaaS.Query(tableName)
+//       queryTime.compare('startTime', '=', options.id);
+//       Cards.setQuery(queryTime).find().then((res)=>{
+//       console.log('eventNow',res)
+//       this.setData({
+//       eventNow: res.data.objects,
+//     })
+//   })
+// },
 
     //show map function bindtapped to button
     gotoMap:function(e){
