@@ -57,7 +57,7 @@
         <video wx:if="{{pc.vidURL}}" class="video-cover" autoplay='{{true}}' muted='{{true}}' show-mute-btn='{{true}}'mode='aspectFill' data-id="{{pc.id}}" src="{{pc.vidURL}}"></video>
       <view class="h3" data-id="{{pc.id}}">{{pc.startTime}}</view>
       <view class="h3" data-id="{{pc.id}}">{{pc.location}}</view>
-      <button bindtap="toProductCard" data-id="{{pc.id}}">See Detail</button>
+      <button class="detail-btn" bindtap="toProductCard" data-id="{{pc.id}}">See Detail</button>
     </view>
   </view>  
 </view>
