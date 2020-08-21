@@ -2,6 +2,8 @@
 
 const app = getApp();
 
+const moment = require("moment")
+
 Page({
 
   /**
@@ -16,6 +18,8 @@ Page({
     reviews:[],
     likes:null,
     bookmarks:[],
+    latitude:'',
+    longitude: ''
   },
 
   /**
@@ -33,7 +37,10 @@ Page({
     ProductCard.get(options.id).then((res)=>{
       console.log(res);
       this.setData({
-        productcard: res.data,
+        productcard: {
+          ...res.data,
+          startTime: moment(res.data.startTime).format("YYYY-MM-DD hh:mm")
+        },
         likes:res.data.likes
       })
     });
@@ -48,6 +55,17 @@ Page({
   });
   let userInfo = wx.getStorageSync('userInfo')
   this.checkHasBookmarked(userInfo.id, options.id)
+  wx.getLocation({
+    type: 'gcj02',
+    success: (res) => {
+      console.log(res)
+      this.setData({
+        latitude: res.latitude,
+        longitude: res.longitude
+      })
+    }
+  })
+    
   },
 
   checkHasBookmarked: function(userId, eventId){
@@ -156,6 +174,24 @@ Page({
     })
 
 
+  },
+
+  navigate(){
+    wx.openLocation({
+      latitude: this.data.productcard.latitude,
+      longitude: this.data.productcard.longitude
+    })
+    // wx.getLocation({
+    //   type: 'gcj02', 
+    //   success: function (res) {
+    //     wx.openLocation({//​使用微信内置地图查看位置。
+    //       latitude: this.data.productcard.latitude,//要去的纬度-地址
+    //       longitude: this.data.productcard.longitude,//要去的经度-地址
+    //       name: this.data.productcard.location,
+    //       address: this.data.productcard.location
+    //     })
+    //   }
+    // })
   },
 
 

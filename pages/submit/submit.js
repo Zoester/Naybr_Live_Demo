@@ -35,7 +35,25 @@ Page({
       let that = this
       wx.getSetting({
         success(res) {
-          if (!res.authSetting['scope.userLocation']) {
+          console.log(res)
+          if (res.authSetting['scope.userLocation']==false){
+            wx.openSetting({
+              success(res) {
+                console.log(res)
+                wx.chooseLocation({
+                  success(res){
+                    console.log(res)
+                    that.setData({
+                      address: res.address,
+                      address_name: res.name,
+                      longitude: res.longitude,
+                      latitude: res.latitude
+                    })
+                  }
+                })
+              }
+            })
+          } else if (!res.authSetting['scope.userLocation']) {
             wx.authorize({
               scope: 'scope.userLocation',
               success () {

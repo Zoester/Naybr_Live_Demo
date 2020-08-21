@@ -56,17 +56,22 @@
   <view wx:if="{{tabView =='Organiser'}}" class="container">
   <view class="grid">
     <view class="card-product" wx:for="{{cards}}" wx:for-item="pc">
-      <view>
-        <image wx:if="{{pc.photos}}" class="productCardImage" mode="aspectFill" bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.photos[0]}}"></image>
-        <video wx:if="{{pc.vidURL}}" class="video-cover" mode='aspectFill' bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.vidURL}}"></video>
-        <button class="btn-unsave" size="mini" type="primary" data-id="{{pc.id}}" bindtap="deleteEvent">DELETE 
-        </button>
-      </view>
+      <!-- <view class="image-card" wx:for="{{pc.photos}}" wx:for-item="pcPhoto">  -->
+      <image wx:if="{{pc.photos}}" class="productCardImage" mode="aspectFill" bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.photos[0]}}"></image>
+      <video wx:if="{{pc.vidURL}}" class="video-cover" mode='aspectFill' bindtap="toProductCard" data-id="{{pc.id}}" src="{{pc.vidURL}}"></video>
+      <!-- </view> -->
       <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
       <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
       <view class="slider">
-        <view class="h4" bindtap="toProductCard" data-id="{{pc.id}}">❤️{{pc.likes}}</view>
-        <button class="btn-unsave" data-id="{{productcard.id}}" bindtap="deleteEvent">DELETE </button>
+      <!-- <view class="h4" bindtap="toProductCard" data-id="{{bm.card_id.id}}">❤️ {{bm.card_id.likes}}</view> -->
+        <van-icon 
+          name="like" 
+          size="25"
+          class="like-icon {{ active }}"
+          bindtap="toProductCard" 
+          data-id="{{pc.id}}"/>
+        <view style="margin-left:5px"> {{pc.likes}} </view>
+        <button class="btn-unsave" data-id="{{pc.id}}" bindtap="deleteEvent">Delete</button>
       </view>
     </view> 
   </view>
