@@ -48,23 +48,37 @@
   background-color: #F7F7F7;
   width: 70vw;
   text-align: center;
-  color: #ED6A5A;
-  font-size: 30rpx;
-}
-
-.picker {
-  background-color: #F7F7F7;
-  text-align: center;
-  color: #ED6A5A;
-  font-size: 30rpx;
-}
-
-.buttons{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: center;
+  color: #ED6A5A;
+  font-size: 16px;
+  height: 35px;
+}
+
+.picker-genre {
+  font-size: 16px;
+  margin: 5px 0; 
+  color: #ED6A5A;
+}
+
+
+.picker-start {
+  font-size: 16px;
+  margin: 5px 0; 
+  color: #ED6A5A
+}
+
+/* i give up
+.btn-area {
+ display: flexbox;
+} */
+
+.buttons{
   margin: 20px;
   font-weight: lighter;
   color:white;
   background-color: #ED6A5A;
+  width: 50px;
 }
+
