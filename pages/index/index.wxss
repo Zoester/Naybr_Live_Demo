@@ -10,10 +10,20 @@
   background-size: cover;
   background-position: bottom;
 }
+
+.intro-container .h1 {
+  color: white;
+  font-weight: bold;
+  height: 155px;
+  margin-left: 10px;
+  text-shadow: 2px 1px 1px #CED3DC;
+  font-size: 22px;
+}
 .intro-img{
   width:100%;
   overflow: hidden;
 }
+
 
 /* Header and Genre Wrapper */
 .header {
