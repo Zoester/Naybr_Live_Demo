@@ -1,90 +1,3 @@
-<!-- pages/submit/submit.wxml
-<text>pages/submit/submit.wxml</text>
-<view class="page-body">
-  <view class="page-section">
-    <view class="weui-cells__title">可以自动聚焦的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" auto-focus placeholder="将会获取焦点"/>
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">控制最大输入长度的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" maxlength="10" placeholder="最大输入长度为10" />
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">实时获取输入值：{{inputValue}}</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input"  maxlength="10" bindinput="bindKeyInput" placeholder="输入同步到view中"/>
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">控制输入的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input"  bindinput="bindReplaceInput" placeholder="连续的两个1会变成2" />
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">控制键盘的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input"  bindinput="bindHideKeyboard" placeholder="输入123自动收起键盘" />
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">数字输入的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" type="number" placeholder="这是一个数字输入框" />
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">密码输入的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" password type="text" placeholder="这是一个密码输入框" />
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">带小数点的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" type="digit" placeholder="带小数点的数字键盘"/>
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">身份证输入的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" type="idcard" placeholder="身份证输入键盘" />
-      </view>
-    </view>
-  </view>
-  <view class="page-section">
-    <view class="weui-cells__title">控制占位符颜色的input</view>
-    <view class="weui-cells weui-cells_after-title">
-      <view class="weui-cell weui-cell_input">
-        <input class="weui-input" placeholder-style="color:#F76260" placeholder="占位符字体是红色的" />
-      </view>
-    </view>
-  </view>
-</view>
-bindchange="bindDateChange"
- -->
-
 
 <view class="container">
   <text class="title"> Create an Event </text>
@@ -96,7 +9,7 @@ bindchange="bindDateChange"
 <!-- Upload or Take a Vid  -->
 <view class="page-section">
     <view class="weui-cell__bd" style="margin: 10rpx 0" class="video-upload">
-      <button wx:if="{{!vidURL}}" style="margin: 30rpx 0; font-weight:normal; font-size:18px; color:#ED6A5A " name="video" value="{{vidURL}}" bindtap="takeVideo">Press Here to Take or Upload Your Video</button>
+      <button wx:if="{{!vidURL}}" style="margin: 30rpx 0; font-weight:normal; font-size:20px; color:#ED6A5A " name="video" value="{{vidURL}}" bindtap="takeVideo">*Upload Video <view style="font-size:30px">🎬</view> </button> 
       <video wx:else src='{{vidURL}}'></video>
     </view>
 </view>
@@ -121,7 +34,7 @@ bindchange="bindDateChange"
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd" style="margin: 10rpx 0" >
-              <input class="weui-input" name="name" placeholder="Enter Event Name" placeholder-style="color: #ED6A5A; font-weight:bold; font-size:14px"/>
+              <input class="weui-input" name="name" placeholder="*Enter Event Name" placeholder-style="color: #ED6A5A; font-weight:bold"/>
             </view>
           </view>
         </view>
@@ -131,8 +44,8 @@ bindchange="bindDateChange"
 <!-- Date Time Picker -->
 <view class="page-section">
   <view class="page-section-title">When You Doing It?</view>
-      <DateTimePicker title="Start" isRequired="true" bind:dateTimePicker="onDateTimePicker" name='startTime' format='yyyy-MM-dd HH:mm' style="margin: 5px 0; color: #ED6A5A; font-size: 14px"/>
-      <DateTimePicker title="End" isRequired="true" bind:dateTimePicker="onDateTimePicker" name='endTime' format='yyyy-MM-dd HH:mm' style="margin: 5px 0; color: #ED6A5A; font-size: 14px"/>
+      <DateTimePicker class="picker-start" title="Start" isRequired="true" bind:dateTimePicker="onDateTimePicker" name='startTime' format='yyyy-MM-dd HH:mm'/>
+      <DateTimePicker class="picker-start" title="End" isRequired="true" bind:dateTimePicker="onDateTimePicker" name='endTime' format='yyyy-MM-dd HH:mm'/>
 </view>
 
 <!-- Genre Picker -->
@@ -140,8 +53,8 @@ bindchange="bindDateChange"
     <view class="page-section-title">What Are The ~Vibes~?</view>
       <view class="section">
       <picker class="weui-input" name="genre" bindchange="bindPickerChange" value="{{index}}" range="{{genreArray}}">
-        <view class="picker" style="margin: 5px 0; color: #ED6A5A; font-size: 14px">
-        {{genre == '' ? 'Select Genre' : genre}}
+        <view class="picker-genre">
+        {{genre == '' ? '*Select Genre' : genre}}
         </view>
       </picker>
       </view>
@@ -153,7 +66,7 @@ bindchange="bindDateChange"
         <view class="weui-cells weui-cells_after-title">
           <view class="weui-cell weui-cell_input">
             <view class="weui-cell__bd" style="margin: 10rpx 0" >
-              <input class="weui-input" name="Price" placeholder="Price" placeholder-style="color: #ED6A5A; font-weight: bold; font-size: 14px"/>
+              <input class="weui-input" name="Price" placeholder="Price" placeholder-style="font-size: 16px; color: #ED6A5A"/>
             </view>
           </view>
         </view>
@@ -164,18 +77,17 @@ bindchange="bindDateChange"
         <view class="page-section-title">Where's It At?</view>
         <view class="weui-cell weui-cell_input"  bindtap="getLocation" >
         <view class="weui-cell__bd" style="margin: 10rpx 0" >
-          <input class="weui-input" name="location"  placeholder="Location" placeholder-style="color: #ED6A5A; font-weight:bold; font-size:14px" value="{{address_name}}"/>
+          <input class="weui-input" name="location"  placeholder="*Location" placeholder-style="font-size: 16px; color: #ED6A5A" value="{{address_name}}"/>
         </view>
       </view>
 </view>
 <!-- Submit Btn -->
     <view class="btn-area">
-        <button class="buttons" formType="submit">Submit 😄</button>
-        <button class="buttons" formType="reset">Reset 😢</button>
-      </view>
+      <button class="buttons" formType="submit">Submit 😄</button>
+      <button class="buttons" formType="reset">Reset 😢</button>
+    </view>
 
-
-    </form>
+  </form>
+  
   </view>
-
 </view>
