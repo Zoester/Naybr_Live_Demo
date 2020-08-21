@@ -124,7 +124,7 @@ Page({
     // NEW order with EXPAND will go to table & id 
     console.log("id", user.id)
     bmQuery.compare('user_id', '=', user.id);
-    Bookmarks.setQuery(bmQuery).expand(['card_id']).find().then((res) => {
+    Bookmarks.setQuery(bmQuery).expand(['card_id']).orderBy('-created_at').find().then((res) => {
       console.log("checking if cart works", res)
       this.setData({
         bookmarks: res.data.objects,
@@ -135,7 +135,7 @@ Page({
     let pcQuery = new wx.BaaS.Query()
     pcQuery.compare('created_by', '=', user.id);
     let Cards = new wx.BaaS.TableObject(tableName)
-    Cards.setQuery(pcQuery).find().then((res) => {
+    Cards.setQuery(pcQuery).orderBy('-created_at').find().then((res) => {
       console.log("res data objects inside orgnizer",res.data.objects);
       this.setData({
         cards: res.data.objects
