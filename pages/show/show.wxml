@@ -2,30 +2,28 @@
 
 
 <!--Photo Header-->
+
 <view class="photo">
   <image wx:if="{{productcard.photos}}" class="image" mode="aspectFill" src="{{productcard.photos}}"></image>
-  <video wx:if="{{productcard.vidURL}}" class="video-cover" mode='aspectFill' src="{{productcard.vidURL}}"></video>
+  <video wx:if="{{productcard.vidURL}}" class="video-cover" object-fit="contain" src="{{productcard.vidURL}}"></video>
 </view>
 
 <!--Name and Likes-->
 <view class="container">
   <view class="card">
 
-  <view class="name.like">
-    <view class="h2">{{productcard.name}}</view>
-    <view class="likes">
-    <!-- <view data-id="{{productcard.id}}" bindtap="voteUp">❤️</view> -->
-    <van-icon 
-      name="like" 
-      size="25"
-      class="like-icon {{ active }}"
-      data-id="{{productcard.id}}" 
-      bindtap="voteUp"/>
-
-    <view>{{likes}}</view>
-  </view>
-
-  </view>
+    <view class="name.like">
+      <view class="h2">{{productcard.name}}</view>
+      <view class="likes">
+        <van-icon 
+        name="like" 
+        size="25"
+        class="like-icon {{ active }}"
+        data-id="{{productcard.id}}" 
+        bindtap="voteUp"/>
+        <view>{{likes}}</view>
+      </view>
+    </view>
 
 <!--Details-->
 
@@ -33,7 +31,8 @@
     <view wx:if="{{productcard.description_2}}" class="h3">{{productcard.description_2}}</view>
     <view wx:if="{{productcard.price}}" class="h4">{{productcard.price}}元</view>
     <view class="h4">{{productcard.startTime}}</view>
-    <view class="h4" bindtap="navigate">{{productcard.location}}</view>
+    <view class="h4"  bindtap="navigate">{{productcard.location}} <view style="font-size:16px">🗺</view>
+    </view>
 
 </view>
 
@@ -46,6 +45,8 @@
   </view>
 
 </view>
+
+
 <!--Reviews-->
 
 <view class="container_reviews">
