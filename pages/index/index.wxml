@@ -1,4 +1,8 @@
 <!--index.wxml-->
+
+<view class="page-container">
+
+
 <!-- introduction -->
 
 <view class="intro-container" style="background-image: url('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1597838312829&di=bb2aa0b3273cc5cfcb37d101b8819581&imgtype=0&src=http%3A%2F%2F5b0988e595225.cdn.sohucs.com%2Fimages%2F20180201%2Fe293d9a607164136b035373036443158.jpeg');">
@@ -10,7 +14,13 @@
   <view style="font-weight:lighter; font-size:18px">Make magic. </view> -->
 </view>
 
+<view class="buttons">
+  <button class="map-button" bindtap="gotoMap">Map</button>
+  <button class="list-button" bindtap="gotoList">List</button>
+</view>
+
 <!-- Genre Scroll -->
+<view>
   <scroll-view class="header" scroll-x="true" >
 
     <view class="genre-wrapper">
@@ -21,22 +31,22 @@
 
   </scroll-view>
 
+</view>
+
 <!-- Text -->
+<view class="middle-container">
 
 <view class="intro-text">
-  <!-- <view class="h1" style="font-size:22px; margin-bottom: 5px">WELCOME TO THE NAYBRHOOD</view> -->
-  <view class="p" style="font-weight:lighter; font-size:18px">Find and post live music. </view>
-  <view style="font-weight:lighter; font-size:18px">Support local artists. </view>
-  <view style="font-weight:lighter; font-size:18px">Make magic. </view>
+  <view style="margin-bottom:6px">Find and post live music </view>
+  <view style="margin-bottom:6px">Support local artists </view>
+  <view style="margin-bottom:6px">Make magic </view>
+</view>
+
+
 </view>
 
 <!-- Map -->
-  <!-- <button class="map-button" wx:if="{{!map}}" bindtap="gotoMap">Map View</button>
-  <button class="map-button" wx:else bindtap="gotoList">List View</button> -->
 
-<!-- Map -->
-  <button class="map-button" bindtap="gotoMap">Map</button>
-  <button class="map-button" bindtap="gotoList">List</button>
 
 <!-- Cards -->
 <view wx:if="{{!map}}" class="container">
@@ -55,5 +65,5 @@
   <map id="map" longitude="{{userLongitude}}" latitude="{{userLatitude}}" scale="14" controls="{{controls}}" bindcontroltap="controltap" markers="{{markers}}" bindmarkertap="toProductCard" polyline="{{polyline}}" bindregionchange="regionchange" show-location style="width: 100%; height: 500px;"></map>
 </block>
 
-
+</view>
 
