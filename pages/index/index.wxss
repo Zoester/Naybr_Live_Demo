@@ -160,3 +160,9 @@
   font-weight: lighter;
 }
 
+.detail-btn {
+  font-weight: lighter;
+  color:white;
+  background-color: #ED6A5A;
+  margin: 16px;
+}
