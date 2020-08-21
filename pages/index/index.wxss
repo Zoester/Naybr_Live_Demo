@@ -10,10 +10,31 @@
   background-size: cover;
   background-position: bottom;
 }
+
+.intro-container .h1 {
+  color: white;
+  font-weight: bold;
+  height: 168px;
+  margin-left: 45px;
+  text-shadow: 2px 2px 2px #CED3DC;
+  font-size: 20px;
+}
 .intro-img{
   width:100%;
   overflow: hidden;
 }
+
+.intro-text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 1em;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+  font-weight:lighter; 
+  font-size:20px;
+}
+
 
 /* Header and Genre Wrapper */
 .header {
@@ -50,35 +71,45 @@
   font-weight: bold;
 }
 
-.intro-text {
+/* MAP */
+/* .middle-container {
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  margin-top: 40px;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
-}
-
-/* .intro-text .h1 {
-  font-size: 22px;
-  letter-spacing: 0.3em;
-}
-
-.intro-text .p {
-  font-size: 18px;
-  font-weight: lighter;
+  align-content: center;
+  justify-content: space-between;
+  margin: 1em 0;
+  
 } */
 
-/* MAP */
+.buttons {
+  width: 75px;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  position: fixed;
+  right: 0;
+  top: 46%;
+  z-index:1;
+
+}
 
 .map-button {
-  margin: 40rpx;
-  width: 100%;
+  margin: 10rpx;
+  width: 15vw;
   font-weight: lighter;
   color:white;
   background-color: #ED6A5A;
-  
+  text-align: left;
 }
+
+.list-button {
+  margin: 10rpx;
+  width: 15vw;
+  font-weight: lighter;
+  color:white;
+  background-color: #ED6A5A;
+  text-align: left;
+}
+
 
 /**CONTAINER**/
 
