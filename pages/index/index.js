@@ -4,13 +4,13 @@ const moment = require("moment")
 
 //获取应用实例
 const app = getApp()
-const genre = ['Blues & Jazz', 'Classical', 'Country', 'EDM','Folk & Indie', 'Hip-hop', 'Reggae', 'Rock', 'Latin', 'Pop']
+const genre = ['Blues & Jazz', 'Classical', 'Country', 'EDM','Folk & Indie', 'Hip-hop', 'Reggae', 'Rock', 'Latin', 'Pop','Soul','Funk']
 
 Page({
   data: {
     //cards: [],
     events:[],
-    genre: ['All','Blues & Jazz', 'Classical', 'Country', 'EDM','Folk & Indie', 'Hip-hop', 'Reggae', 'Rock', 'Latin', 'Pop'],
+    genre: ['All','Blues & Jazz', 'Classical', 'Country', 'EDM','Folk & Indie', 'Hip-hop', 'Reggae', 'Rock', 'Latin', 'Pop','Soul','Funk'],
     map:false,
     markers: [{}],
     userLongitude:'121.446648',
