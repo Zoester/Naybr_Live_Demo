@@ -20,7 +20,6 @@
 </view>
 
 <!-- Genre Scroll -->
-<view>
   <scroll-view class="header" scroll-x="true" >
 
     <view class="genre-wrapper">
@@ -30,8 +29,6 @@
     </view>
 
   </scroll-view>
-
-</view>
 
 <!-- Text -->
 <view class="middle-container">
