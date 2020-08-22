@@ -55,7 +55,7 @@ Page({
           id: event.id,
           height: 50,
           width: 50,
-          iconPath: "../images/Home.png"
+          iconPath: "../images/home-HL.png"
         }
     }).filter((event)=>{
       return event.latitude && event.longitude
