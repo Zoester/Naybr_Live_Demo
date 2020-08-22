@@ -10,7 +10,7 @@ Page({
   
     data: {
       formData: {},
-      imageURL:'',
+      imgURL:'',
       vidURL:'',
       pickerHidden: true,
       chosen: '',
@@ -162,6 +162,29 @@ Page({
           console.log("testingabc", url)
           page.setData({
             vidURL: url
+          })
+        })        
+      }
+    })
+  },
+
+  takePhoto:function(){
+    let page = this
+    wx.chooseImage({
+      count: 1,
+      sizeType: ['original'],
+      sourceType: ['album','camera'],
+      camera: 'back',
+      success(res) {
+        console.log('recorded photo',res.tempFilePaths[0])
+        let tempFilePath = res.tempFilePaths[0]
+        page.setData({
+          imgURL:tempFilePath
+        })
+        page.bassUploadFile(tempFilePath).then(url=>{
+          console.log("testing bassUpLoadFile for photo", url)
+          page.setData({
+            imgURL: url
           })
         })        
       }
