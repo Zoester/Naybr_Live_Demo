@@ -34,6 +34,7 @@
         </view>
         <view class="h2" bindtap="toProductCard" data-id="{{bm.card_id.id}}">{{bm.card_id.name}}</view>
         <view class="h3" bindtap="toProductCard" data-id="{{bm.card_id.id}}">{{bm.card_id.description}}</view>
+        <view class="h3" data-id="{{bm.card_id.id}}">{{bm.startTime}}</view>
         <view class="slider">
           <!-- <view class="h4" bindtap="toProductCard" data-id="{{bm.card_id.id}}">❤️ {{bm.card_id.likes}}</view> -->
           <van-icon 
@@ -62,6 +63,7 @@
       <!-- </view> -->
       <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.name}}</view>
       <view class="h2" bindtap="toProductCard" data-id="{{pc.id}}">{{pc.description}}</view>
+      <view class="h3" data-id="{{pc.id}}">{{pc.startTime}}</view>
       <view class="slider">
       <!-- <view class="h4" bindtap="toProductCard" data-id="{{bm.card_id.id}}">❤️ {{bm.card_id.likes}}</view> -->
         <van-icon 
