@@ -85,7 +85,16 @@ Page {
   font-size: 18px;
   font-weight: lighter;
   margin: 4px 0px;
-  margin-top: 2px;
+  margin-top: -10px;
+  font-weight: lighter;
+  color:white;
+  background-color: #ED6A5A;
+}
+
+.creator-btn {
+  font-size: 18px;
+  font-weight: lighter;
+  margin-top: 20px;
   font-weight: lighter;
   color:white;
   background-color: #ED6A5A;
@@ -132,14 +141,7 @@ Page {
   font-size: 16px;
   border-bottom: 1px lightgray solid;
 }
-.creator-btn {
-  font-size: 18px;
-  font-weight: lighter;
-  margin-top: 20px;
-  font-weight: lighter;
-  color:white;
-  background-color: #ED6A5A;
-}
+
 
 
 

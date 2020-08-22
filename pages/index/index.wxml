@@ -15,8 +15,8 @@
 </view>
 
 <view class="buttons">
-  <button class="map-button" bindtap="gotoMap">Map</button>
-  <button class="list-button" bindtap="gotoList">List</button>
+  <button class="map-button {{map? 'btn-active': ''}}" bindtap="gotoMap">Map</button>
+  <button class="list-button {{!map? 'btn-active': ''}}" bindtap="gotoList">List</button>
 </view>
 
 <!-- Genre Scroll -->

@@ -133,6 +133,7 @@ Page({
     product.set("likes", likes + 1).update().then((res)=>{
       console.log("res",res)
       this.setData({
+        liked: true,
         likes:res.data.likes
       })
 
