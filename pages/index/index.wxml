@@ -20,18 +20,17 @@
 </view>
 
 <!-- Genre Scroll -->
-<view>
-  <scroll-view class="header" scroll-x="true" >
 
-    <view class="genre-wrapper">
-      <view class="genre {{selectedGenreIndex == index? 'active' : ''}}" bindtap="selectGenre" data-index="{{index}}" data-genre="{{item}}" wx:for="{{genre}}">
-        <text>{{item}}</text>
-      </view>
+<scroll-view class="header" scroll-x="true" >
+
+  <view class="genre-wrapper">
+    <view class="genre {{selectedGenreIndex == index? 'active' : ''}}" bindtap="selectGenre" data-index="{{index}}" data-genre="{{item}}" wx:for="{{genre}}">
+      <text>{{item}}</text>
     </view>
+  </view>
 
-  </scroll-view>
+</scroll-view>
 
-</view>
 
 <!-- Text -->
 <view class="middle-container">
