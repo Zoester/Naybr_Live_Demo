@@ -16,6 +16,10 @@ Page {
   width: 100%;
 }
 
+.video-cover {
+  width: 100%;
+}
+
 .container {
   margin: 20px 10px;
   padding: 10px;
@@ -80,7 +84,8 @@ Page {
 .bookmark-button {
   font-size: 18px;
   font-weight: lighter;
-  margin: 10px 0px;
+  margin: 4px 0px;
+  margin-top: 2px;
   font-weight: lighter;
   color:white;
   background-color: #ED6A5A;
@@ -127,6 +132,16 @@ Page {
   font-size: 16px;
   border-bottom: 1px lightgray solid;
 }
+.creator-btn {
+  font-size: 18px;
+  font-weight: lighter;
+  margin-top: 20px;
+  font-weight: lighter;
+  color:white;
+  background-color: #ED6A5A;
+}
+
+
 
 
 
