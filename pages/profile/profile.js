@@ -1,6 +1,6 @@
 // pages/profile/profile.js
 const app = getApp()
-
+const moment = require("moment")
 Page({
   data: {
     welcome_text: 'Prepare your ears. Welcome to Music Box',
@@ -126,8 +126,15 @@ Page({
     bmQuery.compare('user_id', '=', user.id);
     Bookmarks.setQuery(bmQuery).expand(['card_id']).orderBy('-created_at').find().then((res) => {
       console.log("checking if cart works", res)
+      const newTime = res.data.objects.map(event => {
+      return {
+        ...event,
+        startTime: moment(event.card_id.startTime).format("YYYY-MM-DD hh:mm")
+      }
+    });
       this.setData({
-        bookmarks: res.data.objects,
+        bookmarks: newTime,
+        
       })
     })
     // SHOW EVENT CREATED BY SPECIFIC USER "ORGANISER"
@@ -137,8 +144,14 @@ Page({
     let Cards = new wx.BaaS.TableObject(tableName)
     Cards.setQuery(pcQuery).orderBy('-created_at').find().then((res) => {
       console.log("res data objects inside orgnizer",res.data.objects);
+      const newTime = res.data.objects.map(event => {
+        return {
+          ...event,
+          startTime: moment(event.startTime).format("YYYY-MM-DD hh:mm")
+        }
+      });
       this.setData({
-        cards: res.data.objects
+        cards: newTime,
       })
     })
 
