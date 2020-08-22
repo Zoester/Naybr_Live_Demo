@@ -18,7 +18,7 @@ Page({
       allValue:'',
       index:0,
       genre: '',
-      genreArray:['Blues & Jazz','Classical','Country','EDM','Folk & Indie','Hip-hop','Reggae','Rock','Latin','Pop']
+      genreArray:['Blues & Jazz','Classical','Country','EDM','Folk & Indie','Hip-hop','Reggae','Rock','Latin','Pop','Soul','Funk']
     },
 
     //只能选择日期
@@ -118,10 +118,19 @@ Page({
       newCard.set(formData)
 
       newCard.save().then((res)=>{
-        console.log('save res',res);
-        wx.switchTab({
-          url: '/pages/profile/profile?toView=organiser',
+        wx.showToast({
+          title: 'Submitted!',
+          icon: 'success',
+          duration: 2000,
+          mask: true,
         })
+        console.log('save res',res);
+        setTimeout(()=>{
+          wx.switchTab({
+            url: '/pages/profile/profile?toView=organiser',
+          })
+        },2000)
+        
         getApp().globalData.profileToTabTwo = true
       }) 
 
