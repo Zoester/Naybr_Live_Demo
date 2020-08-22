@@ -10,7 +10,7 @@ Page({
   
     data: {
       formData: {},
-      imgURL:'',
+      imgURL:null,
       vidURL:'',
       pickerHidden: true,
       chosen: '',
