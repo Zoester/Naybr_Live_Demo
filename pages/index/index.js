@@ -82,7 +82,7 @@ filterExpiredEvents: function(allEvents) {
   }).map(event => {
     return {
       ...event,
-      startTime: moment(event.startTime).format("YYYY-MM-DD hh:mm")
+      startTime: moment(event.startTime).utcOffset(event.startTime).format("YYYY-MM-DD hh:mm")
     }
   });
 
