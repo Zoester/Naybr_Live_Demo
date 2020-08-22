@@ -33,7 +33,11 @@
     <view wx:if="{{productcard.description_2}}" class="h3">{{productcard.description_2}}</view>
     <view wx:if="{{productcard.price}}" class="h4">{{productcard.price}}元</view>
     <view class="h4">{{productcard.startTime}}</view>
-    <view class="h4" bindtap="navigate">{{productcard.location}}</view>
+    <view class="h4" bindtap="navigate">{{productcard.location}}</view>#
+
+    <button bindtap="handleTapShareButton" open-type="share" type="mini-btn" role="button" aria-disabled="false" class="creator-btn">
+        <image style="width: 30px; height: 30px" src="/pages/images/share.png"></image>
+      </button>
 
 </view>
 
