@@ -119,7 +119,7 @@ Page({
 
       newCard.save().then((res)=>{
         wx.showToast({
-          title: 'Submitted!',
+          title: 'Submitted!🤟',
           icon: 'success',
           duration: 2000,
           mask: true,
