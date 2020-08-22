@@ -18,7 +18,7 @@ Page({
       allValue:'',
       index:0,
       genre: '',
-      genreArray:['Blues & Jazz','Classical','Country','EDM','Folk & Indie','Hip-hop','Reggae','Rock','Latin','Pop','Soul','Funk']
+      genreArray:['Blues & Jazz','Classical','Country','EDM','Folk & Indie','Hip-hop','Reggae','Rock','Latin','Pop','Soul','Funk','Contemporary']
     },
 
     //只能选择日期
