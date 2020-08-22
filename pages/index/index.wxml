@@ -20,15 +20,16 @@
 </view>
 
 <!-- Genre Scroll -->
-  <scroll-view class="header" scroll-x="true" >
 
-    <view class="genre-wrapper">
-      <view class="genre {{selectedGenreIndex == index? 'active' : ''}}" bindtap="selectGenre" data-index="{{index}}" data-genre="{{item}}" wx:for="{{genre}}">
-        <text>{{item}}</text>
-      </view>
+<scroll-view class="header" scroll-x="true" >
+
+  <view class="genre-wrapper">
+    <view class="genre {{selectedGenreIndex == index? 'active' : ''}}" bindtap="selectGenre" data-index="{{index}}" data-genre="{{item}}" wx:for="{{genre}}">
+      <text>{{item}}</text>
     </view>
+  </view>
 
-  </scroll-view>
+</scroll-view>
 
 <!-- Text -->
 <view class="middle-container">
@@ -50,8 +51,8 @@
   <view class="grid">
       <view class="card-product" wx:for="{{events}}" wx:for-item="pc">
       <view class="h2" data-id="{{pc.id}}">{{pc.name}}</view>
-        <image wx:if="{{pc.photos}}" class="productCardImage" mode="aspectFill" data-id="{{pc.id}}" src="{{pc.photos[0]}}"></image>
-        <video wx:if="{{pc.vidURL}}" class="video-cover" autoplay='{{true}}' muted='{{true}}' show-mute-btn='{{true}}'mode='aspectFill' data-id="{{pc.id}}" src="{{pc.vidURL}}"></video>
+        <image wx:if="{{pc.photos}}" class="productCardImage" mode="aspectFll" data-id="{{pc.id}}" src="{{pc.photos[0]}}"></image>
+        <video wx:if="{{pc.vidURL}}" class="video-cover" autoplay='{{true}}' muted='{{true}}' show-mute-btn='{{true}}' object-fit='cover' data-id="{{pc.id}}" src="{{pc.vidURL}}"></video>
       <view class="h3" data-id="{{pc.id}}">{{pc.startTime}}</view>
       <view class="h3" data-id="{{pc.id}}">{{pc.location}}</view>
       <button class="detail-btn" bindtap="toProductCard" data-id="{{pc.id}}">See Detail</button>

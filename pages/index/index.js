@@ -30,8 +30,7 @@ Page({
   onLoad: function () {
     let that = this
     let tableName = 'productCard'
-    let now = new Date()
-    console.log(now)
+    
     let Cards = new wx.BaaS.TableObject(tableName)
   //   let queryTime = new wx.BaaS.Query(tableName)
   //   // queryTime.compare('startTime', '>', now)
@@ -47,19 +46,7 @@ Page({
 
   Cards.limit(100).offset(0).find().then((res) => {
     console.log('card content', res.data.objects);
-    const filteredEvents = res.data.objects.filter((event) => {
-      if(!event.startTime) return false;
-
-      if(new Date(event.startTime).getTime() < now.getTime() + 1800000) {
-        return false;
-      }
-      return true;
-    }).map(event => {
-      return {
-        ...event,
-        startTime: moment(event.startTime).format("YYYY-MM-DD hh:mm")
-      }
-    });
+    const filteredEvents = this.filterExpiredEvents(res.data.objects);
 
     let markers = filteredEvents.map((event, index) => {
         return {
@@ -81,6 +68,26 @@ Page({
       markers,
     })
   })
+},
+
+filterExpiredEvents: function(allEvents) {
+  let now = new Date();
+  const filteredEvents = allEvents.filter((event) => {
+    if(!event.startTime) return false;
+
+    if(new Date(event.startTime).getTime() < now.getTime() + 1800000) {
+      return false;
+    }
+    return true;
+  }).map(event => {
+    return {
+      ...event,
+      startTime: moment(event.startTime).format("YYYY-MM-DD hh:mm")
+    }
+  });
+
+  // return filtered events
+  return filteredEvents;
 },
 
 //filter by time, show events happening within an hour
@@ -159,8 +166,10 @@ Page({
     console.log(selectedGenre)
     Cards.setQuery(query).find().then((res) => {
       console.log(res.data);
+      const filteredEvents = this.filterExpiredEvents(res.data.objects);
+
       this.setData({
-        events: res.data.objects
+        events: filteredEvents
       })
     })
   }
